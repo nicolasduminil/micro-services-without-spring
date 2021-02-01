@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  service:
+    image: jboss/wildfly:20.0.1.Final
+    ports:
+      - 8080:8080
+      - 9990:9990
+    environment:
+      JAVA_OPTS: "-Djboss.server.default.config=standalone-microprofile.xml -Djboss.http.port=8080 -Djboss.management.http.port=9990 -Dapp.context.root=test"
+    volumes:
+      - ./target/customers.war:/opt/jboss/wildfly/customization/customers.war
