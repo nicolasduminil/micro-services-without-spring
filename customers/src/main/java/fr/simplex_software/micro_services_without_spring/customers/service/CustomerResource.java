@@ -88,7 +88,7 @@ public class CustomerResource
   }
 
   @DELETE
-  @Path("/customers/{id}")
+  @Path("{id}")
   @Operation(operationId = "removeCustomer", description = "Delete a customer by ID")
   @APIResponse(responseCode = "204", description = "Todo deleted")
   @APIResponse(responseCode = "404", description = "Todo with given id does not exist")

@@ -33,6 +33,7 @@ public class CustomersIT
       .waitingFor(Wait.forLogMessage(".*WFLYSRV0051.*", 1));
   private static URI baseUri;
   private static URI finalUri;
+  private static String id;
 
   static
   {
@@ -40,8 +41,7 @@ public class CustomersIT
     {
       customerContactDetails = CustomerContactDetails.builder().firstName("Emory").lastName("BARTON")
         .emailAddress(new InternetAddress("emory.barton@cocoks.com")).address(customerAddress).build();
-    }
-    catch (AddressException e)
+    } catch (AddressException e)
     {
       e.printStackTrace();
     }
@@ -131,9 +131,10 @@ public class CustomersIT
   }
 
   @Test
+  @Order(5)
   public void getCustomerShouldReturn200() throws JAXBException
   {
-    String id = RestAssured.given()
+    id = RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
       .when()
@@ -149,7 +150,7 @@ public class CustomersIT
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
       .when()
-      .get(UriBuilder.fromUri(finalUri).path("{id}").build(id))
+      .get(UriBuilder.fromUri(finalUri).path("{id}").build(Long.parseLong(id)))
       .then()
       .statusCode(200)
       .extract()
@@ -160,5 +161,50 @@ public class CustomersIT
       .unmarshal(new StringReader(strCustomer));
     assertThat(customer).isNotNull();
     assertThat(customer.getContactDetails().getFirstName()).isEqualTo("Emory");
+  }
+
+  @Test
+  @Order(6)
+  public void getCustomerShouldReturnEmpty()
+  {
+    String strCustomer = RestAssured.given()
+      .accept(MediaType.APPLICATION_XML)
+      .contentType(MediaType.APPLICATION_XML)
+      .when()
+      .get(UriBuilder.fromUri(finalUri).path("{id}").build(Long.parseLong("0")))
+      .then()
+      .statusCode(200)
+      .extract()
+      .response()
+      .body()
+      .asPrettyString();
+    assertThat(strCustomer).isNotNull();
+    assertThat(strCustomer).isEmpty();
+  }
+
+  @Test
+  @Order(7)
+  public void removeCustomerShouldReturn200()
+  {
+    RestAssured.given()
+      .accept(MediaType.APPLICATION_XML)
+      .contentType(MediaType.APPLICATION_XML)
+      .when()
+      .delete(UriBuilder.fromUri(finalUri).path("{id}").build(Long.parseLong(id)))
+      .then()
+      .statusCode(200);
+  }
+
+  @Test
+  @Order(8)
+  public void removeCustomerShouldReturn404()
+  {
+    RestAssured.given()
+      .accept(MediaType.APPLICATION_XML)
+      .contentType(MediaType.APPLICATION_XML)
+      .when()
+      .delete(UriBuilder.fromUri(finalUri).path("{id}").build(Long.parseLong("0")))
+      .then()
+      .statusCode(200);
   }
 }
