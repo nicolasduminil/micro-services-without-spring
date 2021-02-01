@@ -1,0 +1,10 @@
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/CustomerContactDetails.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/CustomerApp.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/Customer.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/service/CustomerResource.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/producer/UriBuilderProducer.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/Customers.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/CustomerAddress.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/service/CustomerService.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/CustomerType.java
+/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/java/fr/simplex_software/micro_services_without_spring/customers/model/CustomerPhoneNumber.java
