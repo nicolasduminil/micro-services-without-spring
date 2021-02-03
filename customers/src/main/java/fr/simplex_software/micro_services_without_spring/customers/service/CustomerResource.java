@@ -10,8 +10,10 @@ import org.eclipse.microprofile.openapi.annotations.responses.*;
 
 import javax.inject.*;
 import javax.validation.*;
-import javax.ws.rs.*;
+import javax.validation.constraints.*;
+import javax.validation.groups.*;
 import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.util.*;
 
@@ -56,7 +58,7 @@ public class CustomerResource
   @Path("{id}")
   @Operation(operationId = "getCustomer", description = "Get a customer by its ID")
   @APIResponse(responseCode = "200", description = "Ok", content = @Content(schema = @Schema(implementation = Customer.class)))
-  public Response getCustomer (@Parameter(description = "id") @PathParam("id") final Long id)
+  public Response getCustomer (@Parameter(description = "id") @PathParam("id") @Min(1) @Max(10000) final Long id)
   {
     return Response.ok(customerService.getCustomer(id)).build();
   }
@@ -81,7 +83,8 @@ public class CustomerResource
     schema = @Schema(implementation = Customer.class, type = SchemaType.STRING)))
   @APIResponse(responseCode = "204", description = "Customer updated")
   @APIResponse(responseCode = "400", description = "Invalid request")
-  public Response updateCustomer (@Parameter(description = "id") @PathParam("id")Long id, Customer customer)
+  public Response updateCustomer (@Parameter(description = "id") @PathParam("id") @Min(1) @Max(10000) Long id,
+                                  @Valid Customer customer)
   {
     customerService.updateCustomer(id, customer);
     return Response.created(uriBuilder.path("/customers/{id}").build(id)).build();
@@ -93,7 +96,7 @@ public class CustomerResource
   @APIResponse(responseCode = "204", description = "Todo deleted")
   @APIResponse(responseCode = "404", description = "Todo with given id does not exist")
   @APIResponse(responseCode = "500", description = "Internal server error")
-  public Response removeCustomer (@Parameter(description = "id") @PathParam("id") Long id)
+  public Response removeCustomer (@Parameter(description = "id") @PathParam("id") @Min(1) @Max(10000) Long id)
   {
     customerService.removeCustomer(id);
     return Response.ok().build();
