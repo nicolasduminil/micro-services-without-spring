@@ -10,7 +10,7 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
   @Override
   public Response toResponse(ConstraintViolationException e)
   {
-    return Response.status(Response.Status.PAYMENT_REQUIRED).entity(prepareMessage(e)).build();
+    return Response.status(Response.Status.NOT_FOUND).entity(prepareMessage(e)).build();
   }
 
   private String prepareMessage(ConstraintViolationException exception)
