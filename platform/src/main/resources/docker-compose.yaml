@@ -23,7 +23,7 @@ services:
     volumes:
       - ../scripts/oracle:/docker-entrypoint-initdb.d
     healthcheck:
-      test: echo "select * from v\$database;" | sqlplus -S sys/oracle as sysdba || exit 1
+      test: echo "select * from v\$${database};" | sqlplus -S sys/oracle as sysdba || exit 1
       timeout: 3s
       retries: 30
   customers:

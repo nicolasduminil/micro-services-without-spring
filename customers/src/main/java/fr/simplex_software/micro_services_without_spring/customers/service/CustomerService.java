@@ -8,6 +8,7 @@ import javax.enterprise.context.*;
 import java.io.*;
 import java.text.*;
 import java.util.*;
+import java.util.concurrent.atomic.*;
 
 import static java.util.stream.Collectors.*;
 
@@ -34,11 +35,9 @@ public class CustomerService
 
   public Long getCustomerIdByRef(String ref)
   {
-    log.info(">>> CustomerService.getCustomerIdByRef(): ref {}", ref);
-    customers.entrySet().forEach(es -> log.info(">>> >>> CustomerService.getCustomerIdByRef(): key {} value {}", es.getKey(), es.getValue()));
     return customers.entrySet().stream().filter(es -> ref.equals(es.getValue()
       .getCustomerRef())).map(Map.Entry::getKey).findFirst()
-      .orElseThrow(() -> new CustomerReferenceNotFound ("Cannot find customer with reference " + ref));
+      .orElseThrow(() -> new CustomerReferenceNotFound("Cannot find customer with reference " + ref));
   }
 
   public void createCustomer(Long key, Customer customer)

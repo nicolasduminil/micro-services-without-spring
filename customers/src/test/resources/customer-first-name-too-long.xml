@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customer>
+  <customerRef>Customer1</customerRef>
+  <customerType>LOYAL</customerType>
+  <contactDetails>
+    <address>
+      <city>Kedham</city>
+      <country>America</country>
+      <number>35</number>
+      <province>toto</province>
+      <street>Sawayn Brooks</street>
+      <zip>60018</zip>
+    </address>
+    <emailAddress>
+      <address>emory.barton@cocoks.com</address>
+    </emailAddress>
+    <firstName>Emory12345678901234567890</firstName>
+    <lastName>BARTON</lastName>
+    <phoneNumber>
+      <area>1</area>
+      <exchange>2</exchange>
+      <extension>3</extension>
+    </phoneNumber>
+  </contactDetails>
+</customer>
