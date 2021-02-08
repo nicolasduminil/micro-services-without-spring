@@ -69,7 +69,7 @@ public class CustomerResource
   @POST
   @Operation(operationId = "creteCustomer", description = "Create a new customer")
   @RequestBody(name = "customer", required = true, content = @Content(mediaType = MediaType.APPLICATION_XML,
-    schema = @Schema(implementation = Customer.class, type = SchemaType.STRING)))
+    schema = @Schema(implementation = Customer.class, type = SchemaType.OBJECT)))
   @APIResponse(responseCode = "201", description = "Customer created")
   @APIResponse(responseCode = "400", description = "Invalid request")
   public Response createCustomer (@Valid Customer customer)
@@ -83,7 +83,7 @@ public class CustomerResource
   @Path("{id}")
   @Operation(operationId = "updateCustomer", description = "Update a customer by ID")
   @RequestBody(name = "customer", required = true, content = @Content(mediaType = MediaType.APPLICATION_XML,
-    schema = @Schema(implementation = Customer.class, type = SchemaType.STRING)))
+    schema = @Schema(implementation = Customer.class, type = SchemaType.OBJECT)))
   @APIResponse(responseCode = "204", description = "Customer updated")
   @APIResponse(responseCode = "400", description = "Invalid request")
   public Response updateCustomer (@Parameter(description = "id") @PathParam("id") @Min(min) @Max(max) Long id,
@@ -96,8 +96,8 @@ public class CustomerResource
   @DELETE
   @Path("{id}")
   @Operation(operationId = "removeCustomer", description = "Delete a customer by ID")
-  @APIResponse(responseCode = "204", description = "Todo deleted")
-  @APIResponse(responseCode = "404", description = "Todo with given id does not exist")
+  @APIResponse(responseCode = "204", description = "Customer deleted")
+  @APIResponse(responseCode = "404", description = "Customer with given id does not exist")
   @APIResponse(responseCode = "500", description = "Internal server error")
   public Response removeCustomer (@Parameter(description = "id") @PathParam("id") @Min(min) @Max(max) Long id)
   {

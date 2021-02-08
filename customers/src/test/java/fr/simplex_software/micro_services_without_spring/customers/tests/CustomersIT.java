@@ -2,6 +2,7 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.*;
 import io.restassured.*;
+import io.restassured.response.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
 import org.junit.jupiter.api.*;
@@ -53,14 +54,17 @@ public class CustomersIT
   public void createCustomerShouldReturn201()
   {
     Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
-    RestAssured.given()
+    log.info (">>> CustomersIT.createCustomerShouldReturn201(): New created customer has URL {}",
+      RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
       .body(customer)
       .when()
       .post(finalUri)
       .then()
-      .statusCode(HttpStatus.SC_CREATED);
+      .statusCode(HttpStatus.SC_CREATED)
+      .extract()
+      .header("Location"));
   }
 
   @Test
@@ -549,7 +553,6 @@ public class CustomersIT
       .body()
       .asString();
     assertThat(id).isNotNull();
-    log.info(">>> CustomerIT.getCustomerShouldReturn200(): id {} {}", id, Long.parseLong(id));
     String strCustomer = RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
