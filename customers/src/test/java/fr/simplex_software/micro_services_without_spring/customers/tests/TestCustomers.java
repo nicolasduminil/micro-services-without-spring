@@ -2,6 +2,7 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.*;
+import fr.simplex_software.micro_services_without_spring.customers.service.exceptions.*;
 import lombok.extern.slf4j.*;
 import org.jboss.resteasy.specimpl.*;
 import org.junit.jupiter.api.*;
@@ -11,7 +12,6 @@ import org.mockito.junit.jupiter.*;
 
 import javax.mail.internet.*;
 import javax.ws.rs.core.*;
-import java.net.*;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
@@ -27,7 +27,7 @@ public class TestCustomers
   private UriBuilder resteasyUriBuilder;
   @InjectMocks
   private CustomerResource customerResource;
-  private static CustomerAddress customerAddress = CustomerAddress.builder().number(26).street("allée des Sapins")
+  private static final CustomerAddress customerAddress = CustomerAddress.builder().number(26).street("allée des Sapins")
     .city("Soisy sous Montmorency").zip("95230").country("France").build();
   private static CustomerContactDetails customerContactDetails;
 
@@ -44,7 +44,7 @@ public class TestCustomers
     }
   }
 
-  private static Customer customer = Customer.builder().customerRef("Customer1").customerType(CustomerType.LOYAL)
+  private static final Customer customer = Customer.builder().customerRef("Customer1").customerType(CustomerType.LOYAL)
     .contactDetails(customerContactDetails).build();
 
   @BeforeEach
@@ -55,7 +55,7 @@ public class TestCustomers
   }
 
   @Test
-  public void testCreateCustomer() throws URISyntaxException
+  public void testCreateCustomer()
   {
     doNothing().when(customerService).createCustomer(anyLong(), any(Customer.class));
     when(resteasyUriBuilder.path("/customers/{id}")).thenReturn(new ResteasyUriBuilder().path("/customers/{id}"));
@@ -67,7 +67,7 @@ public class TestCustomers
   }
 
   @Test
-  public void testUpdateCustomer() throws URISyntaxException
+  public void testUpdateCustomer()
   {
     doNothing().when(customerService).updateCustomer(anyLong(), any(Customer.class));
     when(resteasyUriBuilder.path("/customers/{id}")).thenReturn(new ResteasyUriBuilder().path("/customers/{id}"));
@@ -91,7 +91,7 @@ public class TestCustomers
   @Test
   public void testGetCustomers()
   {
-    when(customerService.getCustomers()).thenReturn(Customers.builder().customers(Arrays.asList(customer)).build());
+    when(customerService.getCustomers()).thenReturn(Customers.builder().customers(Collections.singletonList(customer)).build());
     Response response = customerResource.getCustomers();
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     Customers customers = response.readEntity(Customers.class);
@@ -129,5 +129,28 @@ public class TestCustomers
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     assertThat(response.readEntity(String.class)).isEqualTo("1");
     verify(customerService).getCustomerIdByRef("Customer1");
+  }
+
+  @Test
+  public void testCustomerService()
+  {
+    CustomerService customerService1 = new CustomerService();
+    customerService1.createCustomer(Long.valueOf(123), customer);
+    assertThat(customerService1.getCustomers()).isNotNull();
+    assertThat(customerService1.getCustomers().getCustomers()).isNotNull();
+    assertThat(customerService1.getCustomers().getCustomers().size()).isNotZero();
+    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNotNull();
+    assertThat(customerService1.getCustomer(Long.valueOf(123)).getCustomerRef()).isEqualTo("Customer1");
+    customer.setCustomerRef("Customer2");
+    customerService1.updateCustomer(Long.valueOf(123), customer);
+    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNotNull();
+    assertThat(customerService1.getCustomer(Long.valueOf(123)).getCustomerRef()).isEqualTo("Customer2");
+    assertThat(customerService1.getCustomerByRef("Customer2")).isNotNull();
+    assertThat(customerService1.getCustomerByRef("Customer2").getCustomerType()).isEqualTo(CustomerType.LOYAL);
+    assertThat(customerService1.getCustomerIdByRef("Customer2")).isNotNull();
+    assertThat(customerService1.getCustomerIdByRef("Customer2")).isEqualTo(Long.valueOf(123));
+    customerService1.removeCustomer(Long.valueOf(123));
+    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNull();
+    assertThatThrownBy(() -> customerService1.getCustomerIdByRef("toto")).isInstanceOf(CustomerReferenceNotFound.class);
   }
 }
