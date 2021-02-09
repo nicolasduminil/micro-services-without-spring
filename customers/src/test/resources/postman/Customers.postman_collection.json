@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "9243aaaf-89ca-439f-bc5b-189dff4889bb",
+		"name": "Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<customer>\n  <customerRef>Customer1</customerRef>\n  <customerType>LOYAL</customerType>\n  <contactDetails>\n    <address>\n      <city>Kedham</city>\n      <country>America</country>\n      <number>35</number>\n      <province>toto</province>\n      <street>Sawayn Brooks</street>\n      <zip>60018</zip>\n    </address>\n    <emailAddress>\n      <address>emory.barton@cocoks.com</address>\n    </emailAddress>\n    <firstName>Emory</firstName>\n    <lastName>BARTON</lastName>\n    <phoneNumber>\n      <area>1</area>\n      <exchange>2</exchange>\n      <extension>3</extension>\n    </phoneNumber>\n  </contactDetails>\n</customer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers/2433",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers",
+						"2433"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer id by ref",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers/id/Customer1",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers",
+						"id",
+						"Customer1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get customer by ref",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers/ref/Customer1",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers",
+						"ref",
+						"Customer1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<customer>\n  <customerRef>Customer2</customerRef>\n  <customerType>LOYAL</customerType>\n  <contactDetails>\n    <address>\n      <city>Kedham</city>\n      <country>America</country>\n      <number>35</number>\n      <province>toto</province>\n      <street>Sawayn Brooks</street>\n      <zip>60018</zip>\n    </address>\n    <emailAddress>\n      <address>emory.barton@cocoks.com</address>\n    </emailAddress>\n    <firstName>Emory</firstName>\n    <lastName>BARTON</lastName>\n    <phoneNumber>\n      <area>1</area>\n      <exchange>2</exchange>\n      <extension>3</extension>\n    </phoneNumber>\n  </contactDetails>\n</customer>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers/2433",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers",
+						"2433"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "192.168.96.2:8080/customers/test/customers/2433",
+					"host": [
+						"192",
+						"168",
+						"96",
+						"2"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"test",
+						"customers",
+						"2433"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
