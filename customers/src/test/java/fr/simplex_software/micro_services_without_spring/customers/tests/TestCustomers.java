@@ -1,6 +1,6 @@
 package fr.simplex_software.micro_services_without_spring.customers.tests;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.*;
+import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.exceptions.*;
 import lombok.extern.slf4j.*;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 public class TestCustomers
 {
   @Mock
-  private CustomerService customerService;
+  private CustomerServiceDefault customerService;
   @Mock
   private UriBuilder resteasyUriBuilder;
   @InjectMocks
@@ -134,7 +134,7 @@ public class TestCustomers
   @Test
   public void testCustomerService()
   {
-    CustomerService customerService1 = new CustomerService();
+    CustomerServiceDefault customerService1 = new CustomerServiceDefault();
     customerService1.createCustomer(Long.valueOf(123), customer);
     assertThat(customerService1.getCustomers()).isNotNull();
     assertThat(customerService1.getCustomers().getCustomers()).isNotNull();

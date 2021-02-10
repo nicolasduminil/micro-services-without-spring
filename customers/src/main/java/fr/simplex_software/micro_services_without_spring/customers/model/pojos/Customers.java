@@ -1,8 +1,8 @@
-package fr.simplex_software.micro_services_without_spring.customers.model;
+package fr.simplex_software.micro_services_without_spring.customers.model.pojos;
 
 import lombok.*;
+import org.eclipse.microprofile.openapi.annotations.media.*;
 
-import javax.validation.*;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.*;
 import java.util.*;
@@ -13,6 +13,7 @@ import java.util.*;
 @Builder
 @XmlRootElement(name = "customers")
 @XmlAccessorType (XmlAccessType.FIELD)
+@Schema
 public class Customers
 {
   @XmlElement(name = "customer")

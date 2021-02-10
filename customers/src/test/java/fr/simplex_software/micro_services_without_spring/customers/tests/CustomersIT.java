@@ -1,8 +1,7 @@
 package fr.simplex_software.micro_services_without_spring.customers.tests;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.*;
+import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.restassured.*;
-import io.restassured.response.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
 import org.junit.jupiter.api.*;
@@ -10,7 +9,6 @@ import org.testcontainers.containers.*;
 import org.testcontainers.containers.output.*;
 import org.testcontainers.containers.wait.strategy.*;
 
-import javax.mail.internet.*;
 import javax.ws.rs.core.*;
 import javax.xml.bind.*;
 import java.io.*;

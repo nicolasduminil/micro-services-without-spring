@@ -1,6 +1,6 @@
 package fr.simplex_software.micro_services_without_spring.customers.service;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.*;
+import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import lombok.extern.slf4j.*;
 import org.eclipse.microprofile.openapi.annotations.*;
 import org.eclipse.microprofile.openapi.annotations.enums.*;
@@ -11,7 +11,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.*;
 import javax.inject.*;
 import javax.validation.*;
 import javax.validation.constraints.*;
-import javax.validation.groups.*;
 import javax.ws.rs.Path;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;

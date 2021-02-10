@@ -1,12 +1,10 @@
 package fr.simplex_software.micro_services_without_spring.customers.tests;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.*;
-import groovy.util.logging.*;
+import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.cucumber.java.en.*;
 import io.restassured.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.*;
-import org.junit.jupiter.api.*;
 import org.testcontainers.containers.*;
 import org.testcontainers.containers.output.*;
 import org.testcontainers.containers.wait.strategy.*;

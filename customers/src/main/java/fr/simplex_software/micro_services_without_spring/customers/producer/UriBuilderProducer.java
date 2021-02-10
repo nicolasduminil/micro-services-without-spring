@@ -1,7 +1,5 @@
 package fr.simplex_software.micro_services_without_spring.customers.producer;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.*;
-
 import javax.enterprise.inject.*;
 import javax.ws.rs.core.*;
 
