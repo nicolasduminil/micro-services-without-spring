@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  oracle:
+    image: oracleinanutshell/oracle-xe-11g:latest
+    hostname: oracle
+    ports:
+      - 49161:1521
+      - 5500:5500
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+      ORACLE_DISABLE_ASYNCH_IO: "true"
+    volumes:
+      - ../scripts/oracle:/docker-entrypoint-initdb.d
+  customers:
+    image: customers:1.0-SNAPSHOT
+    hostname: customers
+    depends_on:
+      - oracle
+    ports:
+      - 8080:8080
+    command: ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]

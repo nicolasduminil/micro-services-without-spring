@@ -1,0 +1,1 @@
+/opt/jboss/wildfly/bin/jboss-cli.sh -c "deploy --force --name=customers.war /opt/jboss/wildfly/customization/customers.war"

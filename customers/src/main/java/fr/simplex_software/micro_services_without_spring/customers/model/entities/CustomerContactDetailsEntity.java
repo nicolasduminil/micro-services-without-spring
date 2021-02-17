@@ -22,10 +22,14 @@ public class CustomerContactDetailsEntity
   private String firstName;
   @Column(name = "LAST_NAME", nullable = false, length = 40)
   private String lastName;
-  @OneToOne(mappedBy = "contactDetails", cascade = CascadeType.ALL)
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "CUSTOMER_ADDRESS_ID", referencedColumnName = "CUSTOMER_ADDRESS_ID")
   private CustomerAddressEntity address;
   @Column(name = "EMAIL_ADDRESS", nullable = false)
-  private InternetAddress emailAddress;
-  @OneToOne(mappedBy = "contactDetails", cascade = CascadeType.ALL)
+  private String emailAddress;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "CUSTOMER_PHONE_NUMBER_ID", referencedColumnName = "CUSTOMER_PHONE_NUMBER_ID")
   private CustomerPhoneNumberEntity phoneNumber;
+  @OneToOne(mappedBy = "contactDetails")
+  private CustomerEntity customer;
 }

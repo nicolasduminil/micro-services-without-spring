@@ -1,11 +1,13 @@
 package fr.simplex_software.micro_services_without_spring.customers.service;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.entities.*;
+import fr.simplex_software.micro_services_without_spring.customers.model.mappers.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 
 import javax.enterprise.inject.*;
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.*;
 
 @Alternative
 public class CustomerServiceJpa implements CustomerService
@@ -16,51 +18,51 @@ public class CustomerServiceJpa implements CustomerService
   @Override
   public Customers getCustomers()
   {
-    List<Customer> customers = entityManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
-    return Customers.builder().customers(customers).build();
+    List<CustomerEntity> customers = entityManager.createQuery("SELECT c FROM CustomerEntity c",
+      CustomerEntity.class).getResultList();
+    return Customers.builder().customers(customers.stream().map(CustomerMapper.INSTANCE::fromEntity)
+      .collect(Collectors.toList())).build();
   }
 
   @Override
   public Customer getCustomer(Long id)
   {
-    Customer customer = entityManager.createQuery("SELECT distinct c FROM Customer c WHERE c.id=:id", Customer.class).setParameter("id", id).getSingleResult();
-    return customer;
+    return CustomerMapper.INSTANCE.fromEntity(entityManager.find(CustomerEntity.class, id));
   }
 
   @Override
   public Customer getCustomerByRef(String ref)
   {
-    Customer customer = entityManager.createQuery("SELECT distinct c FROM Customer c WHERE c.customerRef=:ref", Customer.class).setParameter("ref", ref).getSingleResult();
-    return customer;
+    return CustomerMapper.INSTANCE.fromEntity(entityManager
+      .createQuery("SELECT distinct c FROM CustomerEntity c WHERE c.customerRef=:ref", CustomerEntity.class)
+      .setParameter("ref", ref).getSingleResult());
   }
 
   @Override
   public Long getCustomerIdByRef(String ref)
   {
-    /*CustomerEntity customer =  entityManager.createQuery("SELECT distinct c FROM Customer c WHERE c.customerRef=:ref", CustomerEntity.class).setParameter("ref", ref).getSingleResult();
-    return Customer.builder().customerRef(customer.getCustomerRef()).customerType(customer.getCustomerType())
-      .contactDetails(CustomerContactDetails.builder().firstName(customer.getContactDetails().getFirstName())
-        .lastName(customer.getContactDetails().getLastName()).address(CustomerAddress.builder()
-          .number(customer.getContactDetails().getAddress().getNumber())*/
-    return null;
+    CustomerEntity customer =  entityManager.createQuery("SELECT distinct c FROM CustomerEntity c WHERE c.customerRef=:ref",
+      CustomerEntity.class).setParameter("ref", ref).getSingleResult();
+    return customer.getId();
   }
 
   @Override
   public void createCustomer(Long id, Customer customer)
   {
-    entityManager.persist(CustomerEntity.builder().id(id).customerRef(customer.getCustomerRef()));
+    entityManager.persist(CustomerMapper.INSTANCE.fromCustomer(customer));
   }
 
   @Override
-  public void updateCustomer(Long key, Customer customer)
+  public void updateCustomer(Long id, Customer customer)
   {
-
+    CustomerEntity customerEntity = entityManager.find(CustomerEntity.class, id);
+    CustomerMapper.INSTANCE.updateEntityFromPOJO(customer, customerEntity);
+    entityManager.merge(customerEntity);
   }
 
   @Override
-  public void removeCustomer(Long key)
+  public void removeCustomer(Long id)
   {
-
+    entityManager.createQuery("DELETE from CustomerEntity c where ci.id = :id").setParameter("id", id);
   }
-
 }

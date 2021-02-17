@@ -22,10 +22,11 @@ services:
       ORACLE_DISABLE_ASYNCH_IO: "true"
     volumes:
       - ../scripts/oracle:/docker-entrypoint-initdb.d
-    healthcheck:
-      test: echo "select * from v\$${database};" | sqlplus -S sys/oracle as sysdba || exit 1
-      timeout: 3s
-      retries: 30
+    #healthcheck:
+      #test: echo "select * from v\$database;" | sqlplus -S sys/oracle as sysdba || exit 1
+      #test: echo "select 1 from all_users where username = 'TOTO';" | sqlplus -S sys/oracle as sysdba || exit 1
+      #timeout: 3s
+      #retries: 30
   customers:
     image: customers:1.0-SNAPSHOT
     networks:
@@ -33,9 +34,14 @@ services:
         ipv4_address: 192.168.96.2
     hostname: customers
     container_name: customers
+    depends_on:
+      - oracle
     ports:
       - 8080:8080
       - 9990:9990
     environment:
       JAVA_OPTS: "-Djboss.server.default.config=standalone-microprofile.xml -Djboss.http.port=8080 -Djboss.management.http.port=9990 -Dapp.context.root=test"
+      ORACLE_PORT: 1521
+      WILDFLY_PORT: 8080
+    #entrypoint: /opt/jboss/wildfly/bin/run.sh
     command: ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]

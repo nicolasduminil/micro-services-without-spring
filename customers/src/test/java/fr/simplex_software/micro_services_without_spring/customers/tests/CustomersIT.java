@@ -8,6 +8,9 @@ import org.junit.jupiter.api.*;
 import org.testcontainers.containers.*;
 import org.testcontainers.containers.output.*;
 import org.testcontainers.containers.wait.strategy.*;
+import org.testcontainers.images.builder.*;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.*;
 
 import javax.ws.rs.core.*;
 import javax.xml.bind.*;
@@ -16,35 +19,38 @@ import java.net.*;
 
 import static org.assertj.core.api.Assertions.*;
 
+@Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Slf4j
 public class CustomersIT
 {
-  private static final GenericContainer<?> wildfly =
-    new GenericContainer<>("customers:1.0-SNAPSHOT")
-      .withExposedPorts(8080, 9990)
-      .withNetwork(Network.newNetwork())
-      .withNetworkAliases("wildfly-container-alias")
-      .withLogConsumer(new Slf4jLogConsumer(log))
-      .waitingFor(Wait.forLogMessage(".*WFLYSRV0051.*", 1));
-  private static URI baseUri;
+  @Container
+  private static final GenericContainer<?> wildfly = new GenericContainer(
+    new ImageFromDockerfile().withDockerfileFromBuilder(builder -> builder
+      .from("jboss/wildfly:20.0.1.Final")
+      .run("/opt/jboss/wildfly/bin/add-user.sh admin admin --silent")
+      .add("target/customers.war", "/opt/jboss/wildfly/standalone/deployments")
+      .entryPoint("exec /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0")
+      .build())
+      .withFileFromFile("target/customers.war", new File("target/customers.war")))
+    .withExposedPorts(8080, 9990)
+    .withNetwork(Network.newNetwork())
+    .withNetworkAliases("wildfly-container-alias")
+    .withLogConsumer(new Slf4jLogConsumer(log))
+    .waitingFor(Wait.forLogMessage(".*WFLYSRV0051.*", 1));
   private static URI finalUri;
   private static String id;
-
-  static
-  {
-    wildfly.start();
-  }
 
   @BeforeAll
   public static void beforeAll()
   {
-    baseUri = UriBuilder.fromPath("customers")
+     finalUri = UriBuilder.fromPath("customers")
       .scheme("http")
       .host(wildfly.getHost())
       .port(wildfly.getFirstMappedPort())
+      .path("test")
+      .path("customers")
       .build();
-    finalUri = UriBuilder.fromUri(baseUri).path("test").path("customers").build();
   }
 
   @Test
@@ -480,7 +486,7 @@ public class CustomersIT
   public void createCustomerShouldReturnContactDetailsPhoneNumberMustNotBeNull()
   {
     Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-phone-number.xml"));
-    RestAssured.given()
+    assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
       .body(customer)
@@ -491,7 +497,7 @@ public class CustomersIT
       .response()
       .getBody()
       .asString()
-      .contains("contactDetails.phoneNumber must not be null");
+      .contains("contactDetails.phoneNumber must not be null")).isTrue();
   }
 
   @Test
@@ -501,7 +507,7 @@ public class CustomersIT
     RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
-      .body(new String())
+      .body("")
       .when()
       .post(UriBuilder.fromUri(finalUri).path("none").build())
       .then()

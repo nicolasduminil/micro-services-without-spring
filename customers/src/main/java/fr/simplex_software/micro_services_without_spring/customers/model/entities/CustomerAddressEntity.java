@@ -29,8 +29,6 @@ public class CustomerAddressEntity
   private String zip;
   @Column(name = "COUNTRY", nullable = false, length = 20)
   private String country;
-  @OneToOne
-  @MapsId
-  @JoinColumn(name = "CUSTOMER_CONTACT_DETAILS_ID")
-  private CustomerContactDetailsEntity customerContactDetailsEntity;
+  @OneToOne(mappedBy = "address")
+  private CustomerContactDetailsEntity contactDetails;
 }

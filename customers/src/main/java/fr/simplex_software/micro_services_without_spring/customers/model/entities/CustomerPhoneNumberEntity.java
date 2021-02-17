@@ -23,4 +23,6 @@ public class CustomerPhoneNumberEntity
   private int exchange;
   @Column(name = "EXTENSION", nullable = false)
   private int extension;
+  @OneToOne(mappedBy = "phoneNumber")
+  private CustomerContactDetailsEntity contactDetails;
 }

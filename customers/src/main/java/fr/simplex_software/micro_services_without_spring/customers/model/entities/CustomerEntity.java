@@ -21,7 +21,9 @@ public class CustomerEntity
   @Column(name = "CUSTOMER_REFERENCE", unique = true, nullable = false, length = 10)
   private String customerRef;
   @Enumerated
+  @Column(name = "CUSTOMER_TYPE", nullable = false, length = 10)
   private CustomerType customerType;
-  @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "CUSTOMER_CONTACT_DETAILS_ID", referencedColumnName = "CUSTOMER_CONTACT_DETAILS_ID")
   private CustomerContactDetailsEntity contactDetails;
 }

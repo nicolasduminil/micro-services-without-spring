@@ -29,20 +29,8 @@ public class TestCustomers
   private CustomerResource customerResource;
   private static final CustomerAddress customerAddress = CustomerAddress.builder().number(26).street("allée des Sapins")
     .city("Soisy sous Montmorency").zip("95230").country("France").build();
-  private static CustomerContactDetails customerContactDetails;
-
-  static
-  {
-    try
-    {
-      customerContactDetails = CustomerContactDetails.builder().firstName("Nicolas").lastName("DUMINIL")
-        .emailAddress(new InternetAddress("nicolas.duminil@wanadoo.fr")).address(customerAddress).build();
-    }
-    catch (AddressException e)
-    {
-      e.printStackTrace();
-    }
-  }
+  private static CustomerContactDetails customerContactDetails = CustomerContactDetails.builder().firstName("Nicolas").lastName("DUMINIL")
+    .emailAddress("nicolas.duminil@wanadoo.fr").address(customerAddress).build();
 
   private static final Customer customer = Customer.builder().customerRef("Customer1").customerType(CustomerType.LOYAL)
     .contactDetails(customerContactDetails).build();

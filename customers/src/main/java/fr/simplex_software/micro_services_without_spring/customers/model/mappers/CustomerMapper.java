@@ -8,8 +8,8 @@ import org.mapstruct.factory.*;
 @Mapper
 public interface CustomerMapper
 {
-  CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
+  public CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
   public Customer fromEntity(CustomerEntity customerEntity);
-  @InheritInverseConfiguration
-  CustomerEntity fromCustomer (Customer customer);
+  public CustomerEntity fromCustomer (Customer customer);
+  public void updateEntityFromPOJO(Customer customer, @MappingTarget CustomerEntity customerEntity);
 }

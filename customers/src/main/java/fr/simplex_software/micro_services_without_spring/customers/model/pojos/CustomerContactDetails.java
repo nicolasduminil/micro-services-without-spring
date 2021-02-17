@@ -27,7 +27,7 @@ public class CustomerContactDetails
   private CustomerAddress address;
   @NotNull
   @Schema(example = "emory.barton@cocoks.com", required = true)
-  private InternetAddress emailAddress;
+  private String emailAddress;
   @NotNull
   @Valid
   private CustomerPhoneNumber phoneNumber;
