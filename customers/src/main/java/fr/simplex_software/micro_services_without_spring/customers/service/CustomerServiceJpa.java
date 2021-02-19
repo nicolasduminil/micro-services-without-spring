@@ -12,7 +12,7 @@ import java.util.stream.*;
 @Alternative
 public class CustomerServiceJpa implements CustomerService
 {
-  //@PersistenceContext(unitName = "customers")
+  @PersistenceContext(unitName = "customers")
   private EntityManager entityManager;
 
   @Override
