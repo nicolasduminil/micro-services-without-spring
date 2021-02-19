@@ -57,7 +57,7 @@ public class CustomersIT
   @Order(1)
   public void createCustomerShouldReturn201()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     log.info (">>> CustomersIT.createCustomerShouldReturn201(): New created customer has URL {}",
       RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
@@ -75,7 +75,7 @@ public class CustomersIT
   @Order(2)
   public void createCustomerShouldReturnRefMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-reference.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-reference.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -94,7 +94,7 @@ public class CustomersIT
   @Order(3)
   public void createCustomerShouldReturnRefHasInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-ref-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-ref-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -113,7 +113,7 @@ public class CustomersIT
   @Order(4)
   public void createCustomerShouldReturnTypeMustNotBeNull()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-type.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-type.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -132,7 +132,7 @@ public class CustomersIT
   @Order(5)
   public void createCustomerShouldReturnContactDetailsMustNotBeNull()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-details.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-details.xml"));
     String response = RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -156,7 +156,7 @@ public class CustomersIT
   @Order(6)
   public void createCustomerShouldReturnContactDetailsFirstNameMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-first-name.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-first-name.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -175,7 +175,7 @@ public class CustomersIT
   @Order(7)
   public void createCustomerShouldReturnContactDetailsFirstNameHasInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-first-name-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-first-name-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -194,7 +194,7 @@ public class CustomersIT
   @Order(8)
   public void createCustomerShouldReturnContactDetailsLastNameMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-last-name.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-last-name.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -213,7 +213,7 @@ public class CustomersIT
   @Order(9)
   public void createCustomerShouldReturnContactDetailsLastNameHasInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-last-name-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-last-name-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -232,7 +232,7 @@ public class CustomersIT
   @Order(10)
   public void createCustomerShouldReturnContactDetailsAddressMustNotBeNull()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-address.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-address.xml"));
     String response = RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -257,7 +257,7 @@ public class CustomersIT
   @Order(11)
   public void createCustomerShouldReturnContactDetailsAddressNumberMustNotBeZero()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-number.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-number.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -276,7 +276,7 @@ public class CustomersIT
   @Order(12)
   public void createCustomerShouldReturnContactDetailsAddressStreetMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-street.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-street.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -295,7 +295,7 @@ public class CustomersIT
   @Order(13)
   public void createCustomerShouldReturnContactDetailsAddressStreetInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-street-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-street-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -314,7 +314,7 @@ public class CustomersIT
   @Order(14)
   public void createCustomerShouldReturnContactDetailsAddressCityMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-city.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-city.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -333,7 +333,7 @@ public class CustomersIT
   @Order(15)
   public void createCustomerShouldReturnContactDetailsAddressCityInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-city-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-city-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -352,7 +352,7 @@ public class CustomersIT
   @Order(16)
   public void createCustomerShouldReturnContactDetailsAddressProvinceMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-province.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-province.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -371,7 +371,7 @@ public class CustomersIT
   @Order(17)
   public void createCustomerShouldReturnContactDetailsAddressProvinceInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-province-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-province-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -390,7 +390,7 @@ public class CustomersIT
   @Order(18)
   public void createCustomerShouldReturnContactDetailsAddressZipMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-zip.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-zip.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -409,7 +409,7 @@ public class CustomersIT
   @Order(19)
   public void createCustomerShouldReturnContactDetailsAddressZipInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-zip-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-zip-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -428,7 +428,7 @@ public class CustomersIT
   @Order(20)
   public void createCustomerShouldReturnContactDetailsAddressCountryMustNotBeEmpty()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-country.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-country.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -447,7 +447,7 @@ public class CustomersIT
   @Order(21)
   public void createCustomerShouldReturnContactDetailsAddressCountryInvalidLength()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-country-too-long.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-country-too-long.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -466,7 +466,7 @@ public class CustomersIT
   @Order(22)
   public void createCustomerShouldReturnContactDetailsAddressEmailMustNotBeNull()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-email-address.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-email-address.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -485,7 +485,7 @@ public class CustomersIT
   @Order(23)
   public void createCustomerShouldReturnContactDetailsPhoneNumberMustNotBeNull()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-phone-number.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer-no-phone-number.xml"));
     assertThat(RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -544,7 +544,7 @@ public class CustomersIT
   @Order(26)
   public void getCustomerShouldReturn200() throws JAXBException
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     id = RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -591,7 +591,7 @@ public class CustomersIT
   @Order(28)
   public void updateCustomerSholudReturn201()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -606,7 +606,7 @@ public class CustomersIT
   @Order(29)
   public void updateCustomerSholudReturn404()
   {
-    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     RestAssured.given()
       .accept(MediaType.APPLICATION_XML)
       .contentType(MediaType.APPLICATION_XML)
@@ -641,33 +641,5 @@ public class CustomersIT
       .delete(UriBuilder.fromUri(finalUri).path("{id}").build(Long.parseLong("0")))
       .then()
       .statusCode(404);
-  }
-
-  private void marshalCustomerToXmlFile(Customer customer)
-  {
-    try
-    {
-      Marshaller marshaller = JAXBContext.newInstance(Customer.class).createMarshaller();
-      marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-      marshaller.marshal(customer, new File("customer.xml"));
-    }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-  }
-
-  private Customer unmarshalXmlFileToCustomer(File xml)
-  {
-    Customer customer = null;
-    try
-    {
-      customer = (Customer) JAXBContext.newInstance(Customer.class).createUnmarshaller().unmarshal(xml);
-    }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-    return customer;
   }
 }

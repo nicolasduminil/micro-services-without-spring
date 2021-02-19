@@ -661,7 +661,7 @@
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,670 INFO  [stdout] (ServerService Thread Pool -- 79)        add constraint FK2mx3xw5gcwk0odm335ygk7lqe 
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,670 INFO  [stdout] (ServerService Thread Pool -- 79)        foreign key (CUSTOMER_CONTACT_DETAILS_ID) 
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,671 INFO  [stdout] (ServerService Thread Pool -- 79)        references CUSTOMER_CONTACT_DETAILS
-2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,675 INFO  [org.hibernate.tool.schema.internal.SchemaCreatorImpl] (ServerService Thread Pool -- 79) HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/customers.war/WEB-INF/classes/import.sql)'
+2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,675 INFO  [org.hibernate.tool.schema.internal.SchemaCreatorImpl] (ServerService Thread Pool -- 79) HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/customers.war/WEB-INF/classes/import2.sql)'
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,676 INFO  [stdout] (ServerService Thread Pool -- 79) Hibernate: 
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,676 INFO  [stdout] (ServerService Thread Pool -- 79)     INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'New Jersey', 'USA', 1934, 'NJ', 'Duke Lane', '07701')
 2021-02-19 14:13:47 INFO  CustomersIT:64 - STDOUT: 13:13:47,680 INFO  [stdout] (ServerService Thread Pool -- 79) Hibernate: 
@@ -1230,7 +1230,7 @@ Scenario: Create a customer             # src/test/resources/it/features/custome
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,716 INFO  [stdout] (ServerService Thread Pool -- 79)        add constraint FK2mx3xw5gcwk0odm335ygk7lqe 
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,716 INFO  [stdout] (ServerService Thread Pool -- 79)        foreign key (CUSTOMER_CONTACT_DETAILS_ID) 
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,716 INFO  [stdout] (ServerService Thread Pool -- 79)        references CUSTOMER_CONTACT_DETAILS
-2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,721 INFO  [org.hibernate.tool.schema.internal.SchemaCreatorImpl] (ServerService Thread Pool -- 79) HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/customers.war/WEB-INF/classes/import.sql)'
+2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,721 INFO  [org.hibernate.tool.schema.internal.SchemaCreatorImpl] (ServerService Thread Pool -- 79) HHH000476: Executing import script 'ScriptSourceInputFromUrl(vfs:/content/customers.war/WEB-INF/classes/import2.sql)'
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,722 INFO  [stdout] (ServerService Thread Pool -- 79) Hibernate: 
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,722 INFO  [stdout] (ServerService Thread Pool -- 79)     INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'New Jersey', 'USA', 1934, 'NJ', 'Duke Lane', '07701')
 2021-02-19 14:13:57 INFO  CustomersCucumberSteps:64 - STDOUT: 13:13:57,726 INFO  [stdout] (ServerService Thread Pool -- 79) Hibernate: 
