@@ -6,10 +6,12 @@ import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*
 
 import javax.enterprise.inject.*;
 import javax.persistence.*;
+import javax.transaction.*;
 import java.util.*;
 import java.util.stream.*;
 
 @Alternative
+@Transactional
 public class CustomerServiceJpa implements CustomerService
 {
   @PersistenceContext(unitName = "customers")
@@ -63,6 +65,6 @@ public class CustomerServiceJpa implements CustomerService
   @Override
   public void removeCustomer(Long id)
   {
-    entityManager.createQuery("DELETE from CustomerEntity c where ci.id = :id").setParameter("id", id);
+    entityManager.createQuery("DELETE from CustomerEntity c where c.id = :id").setParameter("id", id);
   }
 }
