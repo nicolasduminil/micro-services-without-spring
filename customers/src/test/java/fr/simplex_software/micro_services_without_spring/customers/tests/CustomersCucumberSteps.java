@@ -5,6 +5,7 @@ import io.cucumber.java.en.*;
 import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
+import org.junit.experimental.categories.*;
 
 import javax.ws.rs.core.*;
 import javax.xml.bind.*;
@@ -14,7 +15,8 @@ import java.net.*;
 import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
-public class CustomersCucumberSteps extends TestBase
+@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
+public class CustomersCucumberSteps extends TestBase implements ProfileServer
 {
   private static URI finalUri;
   private static String id;

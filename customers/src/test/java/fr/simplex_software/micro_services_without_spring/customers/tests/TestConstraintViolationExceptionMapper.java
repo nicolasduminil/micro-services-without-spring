@@ -3,6 +3,7 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.exception_mappers.*;
 import org.junit.*;
+import org.junit.experimental.categories.*;
 
 import javax.validation.*;
 import javax.ws.rs.*;
@@ -12,7 +13,8 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class TestConstraintViolationExceptionMapper
+@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
+public class TestConstraintViolationExceptionMapper implements ProfileServer
 {
   @Test
   public void toResponse()

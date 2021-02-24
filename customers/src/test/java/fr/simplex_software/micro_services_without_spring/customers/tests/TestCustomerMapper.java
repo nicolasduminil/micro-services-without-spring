@@ -4,11 +4,14 @@ import fr.simplex_software.micro_services_without_spring.customers.model.entitie
 import fr.simplex_software.micro_services_without_spring.customers.model.mappers.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import org.junit.*;
+import org.junit.experimental.categories.*;
+
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.*;
 
-public class TestCustomerMapper extends TestBase
+@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
+public class TestCustomerMapper extends TestBase implements ProfileServer
 {
   @Test
   public void testCustomerMapper()
