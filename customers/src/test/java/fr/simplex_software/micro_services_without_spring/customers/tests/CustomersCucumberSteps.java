@@ -3,11 +3,8 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.cucumber.java.en.*;
 import io.restassured.*;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.*;
 import org.apache.http.*;
-import org.testcontainers.containers.*;
-import org.testcontainers.containers.output.*;
-import org.testcontainers.containers.wait.strategy.*;
 
 import javax.ws.rs.core.*;
 import javax.xml.bind.*;
@@ -17,20 +14,12 @@ import java.net.*;
 import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
-public class CustomersCucumberSteps
+public class CustomersCucumberSteps extends TestBase
 {
-  private static final GenericContainer<?> wildfly =
-    new GenericContainer<>("customers:1.0-SNAPSHOT")
-      .withExposedPorts(8080, 9990)
-      .withNetwork(Network.newNetwork())
-      .withNetworkAliases("wildfly-container-alias")
-      .withLogConsumer(new Slf4jLogConsumer(log))
-      .waitingFor(Wait.forLogMessage(".*WFLYSRV0051.*", 1));
-  private static URI baseUri;
   private static URI finalUri;
   private static String id;
   private io.restassured.response.Response response;
-  private Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+  private final Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
 
   static
   {
@@ -40,7 +29,7 @@ public class CustomersCucumberSteps
   @Given("URI is initialized")
   public void uriIsInitialized()
   {
-    baseUri = UriBuilder.fromPath("customers")
+    URI baseUri = UriBuilder.fromPath("customers")
       .scheme("http")
       .host(wildfly.getHost())
       .port(wildfly.getFirstMappedPort())
@@ -148,19 +137,4 @@ public class CustomersCucumberSteps
     response.then()
       .statusCode(HttpStatus.SC_OK);
   }
-
-  private Customer unmarshalXmlFileToCustomer(File xml)
-  {
-    Customer customer = null;
-    try
-    {
-      customer = (Customer) JAXBContext.newInstance(Customer.class).createUnmarshaller().unmarshal(xml);
-    }
-    catch (Exception e)
-    {
-      e.printStackTrace();
-    }
-    return customer;
-  }
-
 }

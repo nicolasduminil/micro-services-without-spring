@@ -8,12 +8,12 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.io.*;
 
-public class TestCustomerMapper
+public class TestCustomerMapper extends TestBase
 {
   @Test
   public void testCustomerMapper()
   {
-    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     assertThat(customer).isNotNull();
     CustomerEntity customerEntity = CustomerMapper.INSTANCE.fromCustomer(customer);
     assertThat(customerEntity).isNotNull();

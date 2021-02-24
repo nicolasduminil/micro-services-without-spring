@@ -17,7 +17,7 @@ public class TestEntities extends JpaHibernateTest
   @Test
   public void testCustomers()
   {
-    Customer customer = Util.unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
+    Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
     assertThat(customer).isNotNull();
     getEm().getTransaction().begin();
     getEm().persist(CustomerMapper.INSTANCE.fromCustomer(customer));
@@ -45,6 +45,6 @@ public class TestEntities extends JpaHibernateTest
     getEm().getTransaction().begin();
     getEm().remove(customerEntity);
     Query finalQ = q;
-    assertThrows(NoResultException.class, () -> finalQ.getSingleResult());
+    assertThrows(NoResultException.class, finalQ::getSingleResult);
   }
 }

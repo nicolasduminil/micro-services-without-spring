@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.*;
 import java.sql.*;
 
-public class JpaHibernateTest
+public class JpaHibernateTest extends TestBase
 {
   private static EntityManagerFactory emf;
   private static EntityManager em;
