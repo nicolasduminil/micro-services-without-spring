@@ -56,7 +56,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ customers ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 12 source files to /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/test-classes
+[INFO] Compiling 10 source files to /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/test-classes
 [INFO] /home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/test/java/fr/simplex_software/micro_services_without_spring/customers/tests/TestBase.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/test/java/fr/simplex_software/micro_services_without_spring/customers/tests/TestBase.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -65,22 +65,24 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
+[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestConstraintViolationExceptionMapper
+2021-02-25 15:07:44 INFO  Version:21 - HV000001: Hibernate Validator 6.1.5.Final
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.321 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestConstraintViolationExceptionMapper
 [INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities
-2021-02-24 19:45:29 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: customers-test]
-2021-02-24 19:45:29 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.4.28.Final
-2021-02-24 19:45:29 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-02-24 19:45:29 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-2021-02-24 19:45:29 INFO  pooling:115 - HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:mem:customers]
-2021-02-24 19:45:29 INFO  pooling:124 - HHH10001001: Connection properties: {}
-2021-02-24 19:45:29 INFO  pooling:129 - HHH10001003: Autocommit mode: false
-2021-02-24 19:45:29 INFO  DriverManagerConnectionProviderImpl:259 - HHH000115: Hibernate connection pool size: 20 (min=1)
-2021-02-24 19:45:29 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-02-24 19:45:29 INFO  beans:73 - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
-2021-02-24 19:45:29 INFO  Version:21 - HV000001: Hibernate Validator 6.1.5.Final
+2021-02-25 15:07:45 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: customers-test]
+2021-02-25 15:07:45 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-02-25 15:07:45 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-25 15:07:45 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-02-25 15:07:45 INFO  pooling:115 - HHH10001005: using driver [org.h2.Driver] at URL [jdbc:h2:mem:customers]
+2021-02-25 15:07:45 INFO  pooling:124 - HHH10001001: Connection properties: {}
+2021-02-25 15:07:45 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-02-25 15:07:45 INFO  DriverManagerConnectionProviderImpl:259 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-02-25 15:07:45 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-02-25 15:07:45 INFO  beans:73 - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
 Hibernate: 
     
     drop table if exists CUSTOMER_ADDRESSES CASCADE 
-2021-02-24 19:45:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3e38c472] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-02-25 15:07:46 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@fe42a09] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 Hibernate: 
     
     drop table if exists CUSTOMER_CONTACT_DETAILS CASCADE 
@@ -103,7 +105,7 @@ Hibernate:
     
     drop sequence if exists CUSTOMERS_SEQ
 Hibernate: create sequence CUSTOMER_ADDRESS_SEQ start with 1 increment by 50
-2021-02-24 19:45:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13e00016] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-02-25 15:07:46 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@305552d6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 Hibernate: create sequence CUSTOMER_CONTACT_DETAILS_SEQ start with 1 increment by 50
 Hibernate: create sequence CUSTOMER_PHONE_NUMBER_SEQ start with 1 increment by 50
 Hibernate: create sequence CUSTOMERS_SEQ start with 1 increment by 50
@@ -170,21 +172,54 @@ Hibernate:
        add constraint FK2mx3xw5gcwk0odm335ygk7lqe 
        foreign key (CUSTOMER_CONTACT_DETAILS_ID) 
        references CUSTOMER_CONTACT_DETAILS
-2021-02-24 19:45:30 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-25 15:07:46 INFO  SchemaCreatorImpl:33 - HHH000476: Executing import script 'file:/home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/classes/import2.sql'
 Hibernate: 
-    call next value for CUSTOMERS_SEQ
+    INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'New Jersey', 'USA', 1934, 'NJ', 'Duke Lane', '07701')
+Hibernate: 
+    INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'New Jersey', 'USA', 1816, 'NJ', 'Pinnickinnick Street', '07305')
+Hibernate: 
+    INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'Baldwyn', 'USA', 4239, 'MS', '4239  Brownton Road', '38824')
+Hibernate: 
+    INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'Scranton', 'USA', 3738, 'PA', 'High Meadow Lane', '18503')
+Hibernate: 
+    INSERT INTO CUSTOMER_ADDRESSES (CUSTOMER_ADDRESS_ID, CITY, COUNTRY, STREET_NUMBER, PROVINCE, STREET_NAME, ZIP_CODE) VALUES (CUSTOMER_ADDRESS_SEQ.nextval, 'Mikkalo', 'USA', 2718, 'OR', '2718  Paul Wayne Haggerty Road', '97861')
+Hibernate: 
+    INSERT INTO CUSTOMER_PHONE_NUMBERS (CUSTOMER_PHONE_NUMBER_ID, AREA_CODE, EXCHANGE, EXTENSION) VALUES (CUSTOMER_PHONE_NUMBER_SEQ.nextval, 1, 732, 7582496)
+Hibernate: 
+    INSERT INTO CUSTOMER_PHONE_NUMBERS (CUSTOMER_PHONE_NUMBER_ID, AREA_CODE, EXCHANGE, EXTENSION) VALUES (CUSTOMER_PHONE_NUMBER_SEQ.nextval, 1, 504, 5017599)
+Hibernate: 
+    INSERT INTO CUSTOMER_PHONE_NUMBERS (CUSTOMER_PHONE_NUMBER_ID, AREA_CODE, EXCHANGE, EXTENSION) VALUES (CUSTOMER_PHONE_NUMBER_SEQ.nextval, 1, 785, 6239225)
+Hibernate: 
+    INSERT INTO CUSTOMER_PHONE_NUMBERS (CUSTOMER_PHONE_NUMBER_ID, AREA_CODE, EXCHANGE, EXTENSION) VALUES (CUSTOMER_PHONE_NUMBER_SEQ.nextval, 1, 858, 5414459)
+Hibernate: 
+    INSERT INTO CUSTOMER_PHONE_NUMBERS (CUSTOMER_PHONE_NUMBER_ID, AREA_CODE, EXCHANGE, EXTENSION) VALUES (CUSTOMER_PHONE_NUMBER_SEQ.nextval, 1, 503, 5365902)
+Hibernate: 
+    INSERT INTO CUSTOMER_CONTACT_DETAILS (CUSTOMER_CONTACT_DETAILS_ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, CUSTOMER_ADDRESS_ID, CUSTOMER_PHONE_NUMBER_ID) VALUES (CUSTOMER_CONTACT_DETAILS_SEQ.nextval, 'kn66146ry8b@temporary-mail.net', 'John', 'HUDSON', 1, 1)
+Hibernate: 
+    INSERT INTO CUSTOMER_CONTACT_DETAILS (CUSTOMER_CONTACT_DETAILS_ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, CUSTOMER_ADDRESS_ID, CUSTOMER_PHONE_NUMBER_ID) VALUES (CUSTOMER_CONTACT_DETAILS_SEQ.nextval, 'ck22xn84vmw@temporary-mail.net', 'Tracey', 'SULLIVAN', 51, 51)
+Hibernate: 
+    INSERT INTO CUSTOMER_CONTACT_DETAILS (CUSTOMER_CONTACT_DETAILS_ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, CUSTOMER_ADDRESS_ID, CUSTOMER_PHONE_NUMBER_ID) VALUES (CUSTOMER_CONTACT_DETAILS_SEQ.nextval, 'uus6in7jnwm@temporary-mail.net', 'Andrew', 'BENITEZ', 101, 101)
+Hibernate: 
+    INSERT INTO CUSTOMER_CONTACT_DETAILS (CUSTOMER_CONTACT_DETAILS_ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, CUSTOMER_ADDRESS_ID, CUSTOMER_PHONE_NUMBER_ID) VALUES (CUSTOMER_CONTACT_DETAILS_SEQ.nextval, 'b7mh9k80xz@temporary-mail.net', 'Melissa', 'ROBINSON', 151, 151)
+Hibernate: 
+    INSERT INTO CUSTOMER_CONTACT_DETAILS (CUSTOMER_CONTACT_DETAILS_ID, EMAIL_ADDRESS, FIRST_NAME, LAST_NAME, CUSTOMER_ADDRESS_ID, CUSTOMER_PHONE_NUMBER_ID) VALUES (CUSTOMER_CONTACT_DETAILS_SEQ.nextval, '3tad726x27c@temporary-mail.net', 'Tina', 'CANNING', 201, 201)
+Hibernate: 
+    INSERT INTO CUSTOMERS (CUSTOMER_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_CONTACT_DETAILS_ID) VALUES (CUSTOMERS_SEQ.nextval, 'Customer1', 1, 1)
+Hibernate: 
+    INSERT INTO CUSTOMERS (CUSTOMER_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_CONTACT_DETAILS_ID) VALUES (CUSTOMERS_SEQ.nextval, 'Customer2', 2, 51)
+Hibernate: 
+    INSERT INTO CUSTOMERS (CUSTOMER_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_CONTACT_DETAILS_ID) VALUES (CUSTOMERS_SEQ.nextval, 'Customer3', 3, 101)
+Hibernate: 
+    INSERT INTO CUSTOMERS (CUSTOMER_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_CONTACT_DETAILS_ID) VALUES (CUSTOMERS_SEQ.nextval, 'Customer4', 4, 151)
+Hibernate: 
+    INSERT INTO CUSTOMERS (CUSTOMER_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_CONTACT_DETAILS_ID) VALUES (CUSTOMERS_SEQ.nextval, 'Customer5', 5, 201)
+2021-02-25 15:07:46 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Hibernate: 
     call next value for CUSTOMERS_SEQ
 Hibernate: 
     call next value for CUSTOMER_CONTACT_DETAILS_SEQ
 Hibernate: 
-    call next value for CUSTOMER_CONTACT_DETAILS_SEQ
-Hibernate: 
     call next value for CUSTOMER_ADDRESS_SEQ
-Hibernate: 
-    call next value for CUSTOMER_ADDRESS_SEQ
-Hibernate: 
-    call next value for CUSTOMER_PHONE_NUMBER_SEQ
 Hibernate: 
     call next value for CUSTOMER_PHONE_NUMBER_SEQ
 Hibernate: 
@@ -215,98 +250,22 @@ Hibernate:
         (CUSTOMER_CONTACT_DETAILS_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_ID) 
     values
         (?, ?, ?, ?)
-Hibernate: 
-    select
-        customeren0_.CUSTOMER_ID as customer1_3_,
-        customeren0_.CUSTOMER_CONTACT_DETAILS_ID as customer4_3_,
-        customeren0_.CUSTOMER_REFERENCE as customer2_3_,
-        customeren0_.CUSTOMER_TYPE as customer3_3_ 
-    from
-        CUSTOMERS customeren0_
-Hibernate: 
-    select
-        customeren0_.CUSTOMER_ID as customer1_3_,
-        customeren0_.CUSTOMER_CONTACT_DETAILS_ID as customer4_3_,
-        customeren0_.CUSTOMER_REFERENCE as customer2_3_,
-        customeren0_.CUSTOMER_TYPE as customer3_3_ 
-    from
-        CUSTOMERS customeren0_ 
-    where
-        customeren0_.CUSTOMER_ID=?
-Hibernate: 
-    update
-        CUSTOMERS 
-    set
-        CUSTOMER_CONTACT_DETAILS_ID=?,
-        CUSTOMER_REFERENCE=?,
-        CUSTOMER_TYPE=? 
-    where
-        CUSTOMER_ID=?
-Hibernate: 
-    select
-        customeren0_.CUSTOMER_ID as customer1_3_,
-        customeren0_.CUSTOMER_CONTACT_DETAILS_ID as customer4_3_,
-        customeren0_.CUSTOMER_REFERENCE as customer2_3_,
-        customeren0_.CUSTOMER_TYPE as customer3_3_ 
-    from
-        CUSTOMERS customeren0_ 
-    where
-        customeren0_.CUSTOMER_ID=?
-Hibernate: 
-    delete 
-    from
-        CUSTOMERS 
-    where
-        CUSTOMER_ID=?
-Hibernate: 
-    delete 
-    from
-        CUSTOMER_CONTACT_DETAILS 
-    where
-        CUSTOMER_CONTACT_DETAILS_ID=?
-Hibernate: 
-    delete 
-    from
-        CUSTOMER_ADDRESSES 
-    where
-        CUSTOMER_ADDRESS_ID=?
-Hibernate: 
-    delete 
-    from
-        CUSTOMER_PHONE_NUMBERS 
-    where
-        CUSTOMER_PHONE_NUMBER_ID=?
-Hibernate: 
-    select
-        customeren0_.CUSTOMER_ID as customer1_3_,
-        customeren0_.CUSTOMER_CONTACT_DETAILS_ID as customer4_3_,
-        customeren0_.CUSTOMER_REFERENCE as customer2_3_,
-        customeren0_.CUSTOMER_TYPE as customer3_3_ 
-    from
-        CUSTOMERS customeren0_ 
-    where
-        customeren0_.CUSTOMER_ID=?
-2021-02-24 19:45:30 INFO  SchemaDropperImpl$DelayedDropActionImpl:526 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-02-25 15:07:46 WARN  SqlExceptionHelper:137 - SQL Error: 23505, SQLState: 23505
+2021-02-25 15:07:46 ERROR SqlExceptionHelper:142 - Unique index or primary key violation: "PUBLIC.UK_ROJRB5EHA6BW84YPCR03RCIOE_INDEX_6 ON PUBLIC.CUSTOMERS(CUSTOMER_REFERENCE) VALUES 1"; SQL statement:
+insert into CUSTOMERS (CUSTOMER_CONTACT_DETAILS_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_ID) values (?, ?, ?, ?) [23505-200]
+2021-02-25 15:07:46 INFO  SchemaDropperImpl$DelayedDropActionImpl:526 - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 Hibernate: 
     
     drop table if exists CUSTOMER_ADDRESSES CASCADE 
-2021-02-24 19:45:30 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@12a6e8ed] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2021-02-24 19:45:32 ERROR SchemaDropperImpl$DelayedDropActionImpl:547 - HHH000478: Unsuccessful: 
-    drop table if exists CUSTOMER_ADDRESSES CASCADE 
+2021-02-25 15:07:46 INFO  access:47 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3cbfdf5c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 Hibernate: 
     
-    drop table if exists CUSTOMER_CONTACT_DETAILS CASCADE 
-2021-02-24 19:45:34 ERROR SchemaDropperImpl$DelayedDropActionImpl:547 - HHH000478: Unsuccessful: 
     drop table if exists CUSTOMER_CONTACT_DETAILS CASCADE 
 Hibernate: 
     
     drop table if exists CUSTOMER_PHONE_NUMBERS CASCADE 
-2021-02-24 19:45:36 ERROR SchemaDropperImpl$DelayedDropActionImpl:547 - HHH000478: Unsuccessful: 
-    drop table if exists CUSTOMER_PHONE_NUMBERS CASCADE 
 Hibernate: 
     
-    drop table if exists CUSTOMERS CASCADE 
-2021-02-24 19:45:38 ERROR SchemaDropperImpl$DelayedDropActionImpl:547 - HHH000478: Unsuccessful: 
     drop table if exists CUSTOMERS CASCADE 
 Hibernate: 
     
@@ -320,217 +279,58 @@ Hibernate:
 Hibernate: 
     
     drop sequence if exists CUSTOMERS_SEQ
-2021-02-24 19:45:38 INFO  pooling:428 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:customers]
-2021-02-24 19:45:38 ERROR DriverManagerConnectionProviderImpl:310 - Connection leak detected: there are 1 unclosed connections upon shutting down pool jdbc:h2:mem:customers
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.528 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities
-[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomers
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomers
-[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestConstraintViolationExceptionMapper
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestConstraintViolationExceptionMapper
+2021-02-25 15:07:46 INFO  pooling:428 - HHH10001008: Cleaning up connection pool [jdbc:h2:mem:customers]
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.185 s <<< FAILURE! - in fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities
+[ERROR] testCustomers  Time elapsed: 0.145 s  <<< ERROR!
+javax.persistence.RollbackException: Error while committing the transaction
+	at fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities.testCustomers(TestEntities.java:25)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities.testCustomers(TestEntities.java:25)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities.testCustomers(TestEntities.java:25)
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: 
+Unique index or primary key violation: "PUBLIC.UK_ROJRB5EHA6BW84YPCR03RCIOE_INDEX_6 ON PUBLIC.CUSTOMERS(CUSTOMER_REFERENCE) VALUES 1"; SQL statement:
+insert into CUSTOMERS (CUSTOMER_CONTACT_DETAILS_ID, CUSTOMER_REFERENCE, CUSTOMER_TYPE, CUSTOMER_ID) values (?, ?, ?, ?) [23505-200]
+	at fr.simplex_software.micro_services_without_spring.customers.tests.TestEntities.testCustomers(TestEntities.java:25)
+
 [INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomerMapper
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomerMapper
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomerMapper
+[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomers
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestCustomers
 [INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.TestUriBuilderProducer
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestUriBuilderProducer
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in fr.simplex_software.micro_services_without_spring.customers.tests.TestUriBuilderProducer
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[ERROR] Errors: 
+[ERROR]   TestEntities.testCustomers:25 » Rollback Error while committing the transactio...
 [INFO] 
+[ERROR] Tests run: 12, Failures: 0, Errors: 1, Skipped: 0
 [INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-ut) @ customers ---
-[INFO] 
-[INFO] --- maven-war-plugin:3.3.1:war (default-war) @ customers ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [customers] in [/home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/customers]
-[INFO] Processing war project
-[INFO] Copying webapp resources [/home/nicolas/IdeaProjects/micro-services-without-spring/customers/src/main/webapp]
-[INFO] Building war: /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/customers.war
-[INFO] 
-[INFO] --- wildfly-jar-maven-plugin:2.0.0.Final:package (default) @ customers ---
-[INFO] Provisioning server configuration based on the set of configured layers
-[INFO] Building server based on [[wildfly@maven(org.jboss.universe:community-universe)#21.0.0.Final inherit-packages=false inheritConfigs=false]] galleon feature-packs
-[INFO] Found boot artifact org.wildfly.core:wildfly-jar-boot:jar:13.0.1.Final:provided in wildfly-core@maven(org.jboss.universe:community-universe):current#13.0.1.Final
-[INFO] Executing CLI, Server configuration
-[INFO] CLI scripts execution done.
-[INFO] 
-[INFO] --- dockerfile-maven-plugin:1.4.13:build (default) @ customers ---
-[INFO] Using Google application default credentials
-[INFO] loaded credentials for user account with clientId=32555940559.apps.googleusercontent.com
-[INFO] dockerfile: /home/nicolas/IdeaProjects/micro-services-without-spring/customers/Dockerfile-bootable
-[INFO] contextDirectory: /home/nicolas/IdeaProjects/micro-services-without-spring/customers
-[INFO] Building Docker context /home/nicolas/IdeaProjects/micro-services-without-spring/customers
-[INFO] Path(dockerfile): /home/nicolas/IdeaProjects/micro-services-without-spring/customers/Dockerfile-bootable
-[INFO] Path(contextDirectory): /home/nicolas/IdeaProjects/micro-services-without-spring/customers
-[INFO] 
-[INFO] Image will be built as customers:1.0-SNAPSHOT
-[INFO] 
-[INFO] Step 1/7 : FROM adoptopenjdk/openjdk11
-[INFO] 
-[INFO] Pulling from adoptopenjdk/openjdk11
-[INFO] Digest: sha256:ae9e38782edf94d49c17df76d0426beeb4cca3096c3a246732dc956df3878e47
-[INFO] Status: Image is up to date for adoptopenjdk/openjdk11:latest
-[INFO]  ---> 0924185d65f7
-[INFO] Step 2/7 : RUN apt-get install curl
-[INFO] 
-[INFO]  ---> Using cache
-[INFO]  ---> ecb87643d43b
-[INFO] Step 3/7 : COPY target/customers-bootable.jar /opt/customers-bootable.jar
-[INFO] 
-[INFO]  ---> 7ea11e57f418
-[INFO] Step 4/7 : HEALTHCHECK --start-period=10s --timeout=60s --retries=10 --interval=5s CMD curl -f http://localhost:9990/health/ready || exit 1
-[INFO] 
-[INFO]  ---> Running in b157e05f0a49
-[INFO] Removing intermediate container b157e05f0a49
-[INFO]  ---> 133e0b0a9c53
-[INFO] Step 5/7 : ENV JAVA_OPTS="-Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0 -Djboss.http.port=8080 -Djboss.management.http.port=9990"
-[INFO] 
-[INFO]  ---> Running in 9863669d4dd9
-[INFO] Removing intermediate container 9863669d4dd9
-[INFO]  ---> 98e1e4600706
-[INFO] Step 6/7 : EXPOSE 8080 9990
-[INFO] 
-[INFO]  ---> Running in a12321e7025e
-[INFO] Removing intermediate container a12321e7025e
-[INFO]  ---> 8ccf5688d645
-[INFO] Step 7/7 : ENTRYPOINT exec java -jar $JAVA_OPTS /opt/customers-bootable.jar
-[INFO] 
-[INFO]  ---> Running in 73e733c7fe34
-[INFO] Removing intermediate container 73e733c7fe34
-[INFO]  ---> 26585b03c387
-[INFO] Successfully built 26585b03c387
-[INFO] Successfully tagged customers:1.0-SNAPSHOT
-[INFO] 
-[INFO] Detected build of image with id 26585b03c387
-[INFO] Successfully built customers:1.0-SNAPSHOT
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:instrument (instrument-it) @ customers ---
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-it) @ customers ---
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:merge (merge-results) @ customers ---
-[INFO] Skipping JaCoCo merge execution due to missing execution data files
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:report (report) @ customers ---
-[INFO] Skipping JaCoCo execution due to missing execution data file.
-[INFO] 
-[INFO] --- maven-install-plugin:2.4:install (default-install) @ customers ---
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/customers.war to /home/nicolas/.m2/repository/fr/simplex-software/customers/1.0-SNAPSHOT/customers-1.0-SNAPSHOT.war
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/customers/pom.xml to /home/nicolas/.m2/repository/fr/simplex-software/customers/1.0-SNAPSHOT/customers-1.0-SNAPSHOT.pom
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/customers-bootable.jar to /home/nicolas/.m2/repository/fr/simplex-software/customers/1.0-SNAPSHOT/customers-1.0-SNAPSHOT-bootable.jar
-[INFO] 
-[INFO] ---------------------< fr.simplex-software:orders >---------------------
-[INFO] Building Micro-services without Spring :: The Orders module 1.0-SNAPSHOT [3/4]
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ orders ---
-[INFO] Deleting /home/nicolas/IdeaProjects/micro-services-without-spring/orders/target
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ orders ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/nicolas/IdeaProjects/micro-services-without-spring/orders/src/main/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ orders ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:instrument (instrument-ut) @ orders ---
-[INFO] Skipping JaCoCo execution due to missing classes directory:/home/nicolas/IdeaProjects/micro-services-without-spring/orders/target/classes
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ orders ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/nicolas/IdeaProjects/micro-services-without-spring/orders/src/test/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ orders ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ orders ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-ut) @ orders ---
-[INFO] 
-[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ orders ---
-[WARNING] JAR will be empty - no content was marked for inclusion!
-[INFO] Building jar: /home/nicolas/IdeaProjects/micro-services-without-spring/orders/target/orders-1.0-SNAPSHOT.jar
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:instrument (instrument-it) @ orders ---
-[INFO] Skipping JaCoCo execution due to missing classes directory:/home/nicolas/IdeaProjects/micro-services-without-spring/orders/target/classes
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-it) @ orders ---
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:merge (merge-results) @ orders ---
-[INFO] Skipping JaCoCo merge execution due to missing execution data files
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:report (report) @ orders ---
-[INFO] Skipping JaCoCo execution due to missing execution data file.
-[INFO] 
-[INFO] --- maven-install-plugin:2.4:install (default-install) @ orders ---
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/orders/target/orders-1.0-SNAPSHOT.jar to /home/nicolas/.m2/repository/fr/simplex-software/orders/1.0-SNAPSHOT/orders-1.0-SNAPSHOT.jar
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/orders/pom.xml to /home/nicolas/.m2/repository/fr/simplex-software/orders/1.0-SNAPSHOT/orders-1.0-SNAPSHOT.pom
-[INFO] 
-[INFO] --------------------< fr.simplex-software:platform >--------------------
-[INFO] Building Micro-services without Spring :: The platform module 1.0-SNAPSHOT [4/4]
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ platform ---
-[INFO] Deleting /home/nicolas/IdeaProjects/micro-services-without-spring/platform/target
-[INFO] 
-[INFO] --- docker-compose-maven-plugin:2.5.1:down (down) @ platform ---
-[INFO] Removing volumes
-[INFO] Removing orphans
-[INFO] Docker Compose Files: /home/nicolas/IdeaProjects/micro-services-without-spring/platform/src/main/resources/docker-compose.yaml
-[INFO] Running: docker-compose -f /home/nicolas/IdeaProjects/micro-services-without-spring/platform/src/main/resources/docker-compose.yaml down -v --remove-orphans
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ platform ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 3 resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ platform ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:instrument (instrument-ut) @ platform ---
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ platform ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/nicolas/IdeaProjects/micro-services-without-spring/platform/src/test/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ platform ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ platform ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-ut) @ platform ---
-[INFO] 
-[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ platform ---
-[INFO] Building jar: /home/nicolas/IdeaProjects/micro-services-without-spring/platform/target/platform.jar
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:instrument (instrument-it) @ platform ---
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:restore-instrumented-classes (restore-it) @ platform ---
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:merge (merge-results) @ platform ---
-[INFO] Skipping JaCoCo merge execution due to missing execution data files
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:report (report) @ platform ---
-[INFO] Skipping JaCoCo execution due to missing execution data file.
-[INFO] 
-[INFO] --- maven-install-plugin:2.4:install (default-install) @ platform ---
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/platform/target/platform.jar to /home/nicolas/.m2/repository/fr/simplex-software/platform/1.0-SNAPSHOT/platform-1.0-SNAPSHOT.jar
-[INFO] Installing /home/nicolas/IdeaProjects/micro-services-without-spring/platform/pom.xml to /home/nicolas/.m2/repository/fr/simplex-software/platform/1.0-SNAPSHOT/platform-1.0-SNAPSHOT.pom
-[INFO] 
-[INFO] --- docker-compose-maven-plugin:2.5.1:up (up) @ platform ---
-[INFO] Running in detached mode
-[INFO] Docker Compose Files: /home/nicolas/IdeaProjects/micro-services-without-spring/platform/src/main/resources/docker-compose.yaml
-[INFO] Running: docker-compose -f /home/nicolas/IdeaProjects/micro-services-without-spring/platform/src/main/resources/docker-compose.yaml up -d --no-color
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for Micro-services without Spring :: The master POM module 1.0-SNAPSHOT:
 [INFO] 
-[INFO] Micro-services without Spring :: The master POM module SUCCESS [  0.462 s]
-[INFO] Micro-services without Spring :: The Customers module SUCCESS [ 53.450 s]
-[INFO] Micro-services without Spring :: The Orders module . SUCCESS [  0.092 s]
-[INFO] Micro-services without Spring :: The platform module SUCCESS [ 14.424 s]
+[INFO] Micro-services without Spring :: The master POM module SUCCESS [  0.456 s]
+[INFO] Micro-services without Spring :: The Customers module FAILURE [  5.652 s]
+[INFO] Micro-services without Spring :: The Orders module . SKIPPED
+[INFO] Micro-services without Spring :: The platform module SKIPPED
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:08 min
-[INFO] Finished at: 2021-02-24T19:46:33+01:00
+[INFO] Total time:  6.235 s
+[INFO] Finished at: 2021-02-25T15:07:47+01:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project customers: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/nicolas/IdeaProjects/micro-services-without-spring/customers/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :customers

@@ -4,7 +4,6 @@ import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*
 import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
-import org.junit.experimental.categories.*;
 import org.junit.jupiter.api.*;
 import org.testcontainers.junit.jupiter.*;
 
@@ -18,8 +17,8 @@ import static org.assertj.core.api.Assertions.*;
 @Testcontainers
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Slf4j
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class CustomersIT extends TestBase implements ProfileServer
+@Tag("profileServer")
+public class CustomersIT extends TestBase
 {
   private static URI finalUri;
   private static String id;

@@ -1,30 +1,30 @@
 package fr.simplex_software.micro_services_without_spring.customers.tests;
 
-import fr.simplex_software.micro_services_without_spring.customers.producer.*;
-import org.junit.*;
-import org.junit.experimental.categories.*;
-import org.junit.runner.*;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.*;
 import org.mockito.*;
-import org.mockito.junit.*;
+import org.mockito.junit.jupiter.*;
 
 import javax.ws.rs.core.*;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class TestUriBuilderProducer implements ProfileServer
+@ExtendWith(MockitoExtension.class)
+@Tag("profileServer")
+public class TestUriBuilderProducer
 {
   @InjectMocks
   @Spy
-  private UriBuilderProducer uriBuilderProducer;
+  private fr.simplex_software.micro_services_without_spring.customers.producer.UriBuilderProducer uriBuilderProducer ;
   @Mock
   private UriBuilder uriBuilder;
 
   @Test
   public void testUriBuilderProducer()
   {
+    assertThat(uriBuilder).isNotNull();
+    assertThat(uriBuilderProducer).isNotNull();
     when (uriBuilderProducer.getUriBuilder()).thenReturn(uriBuilder);
     assertThat (uriBuilderProducer.getUriBuilder()).isEqualTo(uriBuilder);
   }

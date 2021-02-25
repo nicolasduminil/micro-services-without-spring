@@ -5,13 +5,11 @@ import fr.simplex_software.micro_services_without_spring.customers.service.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.exceptions.*;
 import lombok.extern.slf4j.*;
 import org.jboss.resteasy.specimpl.*;
-import org.junit.experimental.categories.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.*;
 import org.mockito.*;
 import org.mockito.junit.jupiter.*;
 
-import javax.mail.internet.*;
 import javax.ws.rs.core.*;
 import java.util.*;
 
@@ -20,8 +18,8 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @Slf4j
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class TestCustomers implements ProfileServer
+@Tag("profileServer")
+public class TestCustomers
 {
   @Mock
   private CustomerServiceDefault customerService;

@@ -3,15 +3,14 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 import fr.simplex_software.micro_services_without_spring.customers.model.entities.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.mappers.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
-import org.junit.*;
-import org.junit.experimental.categories.*;
-
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
 import java.io.*;
 
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class TestCustomerMapper extends TestBase implements ProfileServer
+import static org.assertj.core.api.Assertions.*;
+
+@Tag("profileServer")
+public class TestCustomerMapper extends TestBase
 {
   @Test
   public void testCustomerMapper()

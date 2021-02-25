@@ -2,7 +2,7 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import lombok.extern.slf4j.*;
-import org.junit.experimental.categories.*;
+import org.junit.jupiter.api.*;
 import org.testcontainers.containers.*;
 import org.testcontainers.containers.output.*;
 import org.testcontainers.containers.wait.strategy.*;
@@ -13,8 +13,8 @@ import javax.xml.bind.*;
 import java.io.*;
 
 @Slf4j
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class TestBase implements ProfileServer
+@Tag("profileServer")
+public class TestBase
 {
   @Container
   public static final GenericContainer<?> wildfly = new GenericContainer(

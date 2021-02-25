@@ -3,7 +3,6 @@ package fr.simplex_software.micro_services_without_spring.customers.tests;
 import fr.simplex_software.micro_services_without_spring.customers.model.entities.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.mappers.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
-import org.junit.experimental.categories.*;
 import org.junit.jupiter.api.*;
 
 import javax.persistence.*;
@@ -13,8 +12,8 @@ import java.util.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class TestEntities extends JpaHibernateTest implements ProfileServer
+@Tag("profileServer")
+public class TestEntities extends JpaHibernateTest
 {
   @Test
   public void testCustomers()

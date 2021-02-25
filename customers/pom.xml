@@ -162,7 +162,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <configuration>
-              <groups>fr.simplex_software.micro_services_without_spring.customers.tests.ProfileBootable</groups>
+              <groups>profileBootable</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-it.exec</jacoco-agent.destfile>
               </systemPropertyVariables>
@@ -182,7 +182,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <groups>fr.simplex_software.micro_services_without_spring.customers.tests.ProfileBootable</groups>
+              <groups>profileBootable</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-ut.exec</jacoco-agent.destfile>
               </systemPropertyVariables>
@@ -244,7 +244,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <configuration>
-              <groups>fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer</groups>
+              <groups>profileServer</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-it.exec</jacoco-agent.destfile>
               </systemPropertyVariables>
@@ -264,7 +264,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <groups>fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer</groups>
+              <groups>profileServer</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-ut.exec</jacoco-agent.destfile>
               </systemPropertyVariables>

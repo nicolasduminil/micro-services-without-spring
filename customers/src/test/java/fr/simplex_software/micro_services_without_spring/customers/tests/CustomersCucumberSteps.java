@@ -5,18 +5,17 @@ import io.cucumber.java.en.*;
 import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
-import org.junit.experimental.categories.*;
+import org.junit.jupiter.api.*;
 
 import javax.ws.rs.core.*;
-import javax.xml.bind.*;
 import java.io.*;
 import java.net.*;
 
 import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class CustomersCucumberSteps extends TestBase implements ProfileServer
+@Tag("profileServer")
+public class CustomersCucumberSteps extends TestBase
 {
   private static URI finalUri;
   private static String id;

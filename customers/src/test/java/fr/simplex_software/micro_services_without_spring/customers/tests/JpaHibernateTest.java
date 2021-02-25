@@ -1,14 +1,13 @@
 package fr.simplex_software.micro_services_without_spring.customers.tests;
 
-import org.junit.experimental.categories.*;
 import org.junit.jupiter.api.*;
 
 import javax.persistence.*;
 import java.io.*;
 import java.sql.*;
 
-@Category(fr.simplex_software.micro_services_without_spring.customers.tests.ProfileServer.class)
-public class JpaHibernateTest extends TestBase implements ProfileServer
+@Tag("profileServer")
+public class JpaHibernateTest extends TestBase
 {
   private static EntityManagerFactory emf;
   private static EntityManager em;
