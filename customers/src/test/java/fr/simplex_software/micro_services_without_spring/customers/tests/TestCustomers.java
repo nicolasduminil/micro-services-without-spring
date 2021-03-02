@@ -29,7 +29,7 @@ public class TestCustomers
   private CustomerResource customerResource;
   private static final CustomerAddress customerAddress = CustomerAddress.builder().number(26).street("allée des Sapins")
     .city("Soisy sous Montmorency").zip("95230").country("France").build();
-  private static CustomerContactDetails customerContactDetails = CustomerContactDetails.builder().firstName("Nicolas").lastName("DUMINIL")
+  private static final CustomerContactDetails customerContactDetails = CustomerContactDetails.builder().firstName("Nicolas").lastName("DUMINIL")
     .emailAddress("nicolas.duminil@wanadoo.fr").address(customerAddress).build();
 
   private static final Customer customer = Customer.builder().customerRef("Customer1").customerType(CustomerType.LOYAL)
@@ -123,22 +123,22 @@ public class TestCustomers
   public void testCustomerService()
   {
     CustomerServiceDefault customerService1 = new CustomerServiceDefault();
-    customerService1.createCustomer(Long.valueOf(123), customer);
+    customerService1.createCustomer(123L, customer);
     assertThat(customerService1.getCustomers()).isNotNull();
     assertThat(customerService1.getCustomers().getCustomers()).isNotNull();
     assertThat(customerService1.getCustomers().getCustomers().size()).isNotZero();
-    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNotNull();
-    assertThat(customerService1.getCustomer(Long.valueOf(123)).getCustomerRef()).isEqualTo("Customer1");
+    assertThat(customerService1.getCustomer(123L)).isNotNull();
+    assertThat(customerService1.getCustomer(123L).getCustomerRef()).isEqualTo("Customer1");
     customer.setCustomerRef("Customer2");
-    customerService1.updateCustomer(Long.valueOf(123), customer);
-    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNotNull();
-    assertThat(customerService1.getCustomer(Long.valueOf(123)).getCustomerRef()).isEqualTo("Customer2");
+    customerService1.updateCustomer(123L, customer);
+    assertThat(customerService1.getCustomer(123L)).isNotNull();
+    assertThat(customerService1.getCustomer(123L).getCustomerRef()).isEqualTo("Customer2");
     assertThat(customerService1.getCustomerByRef("Customer2")).isNotNull();
     assertThat(customerService1.getCustomerByRef("Customer2").getCustomerType()).isEqualTo(CustomerType.LOYAL);
     assertThat(customerService1.getCustomerIdByRef("Customer2")).isNotNull();
     assertThat(customerService1.getCustomerIdByRef("Customer2")).isEqualTo(Long.valueOf(123));
-    customerService1.removeCustomer(Long.valueOf(123));
-    assertThat(customerService1.getCustomer(Long.valueOf(123))).isNull();
+    customerService1.removeCustomer(123L);
+    assertThat(customerService1.getCustomer(123L)).isNull();
     assertThatThrownBy(() -> customerService1.getCustomerIdByRef("toto")).isInstanceOf(CustomerReferenceNotFound.class);
   }
 }
