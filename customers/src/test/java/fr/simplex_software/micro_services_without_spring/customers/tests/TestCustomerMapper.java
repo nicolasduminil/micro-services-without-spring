@@ -9,10 +9,8 @@ import java.io.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Tag("profileServer")
 public class TestCustomerMapper extends TestBase
 {
-  @Test
   public void testCustomerMapper()
   {
     Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));

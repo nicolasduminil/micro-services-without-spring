@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@Tag("profileServer")
 public class TestUriBuilderProducer
 {
   @InjectMocks

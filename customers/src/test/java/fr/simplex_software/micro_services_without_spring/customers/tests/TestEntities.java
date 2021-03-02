@@ -12,7 +12,6 @@ import java.util.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("profileServer")
 public class TestEntities extends JpaHibernateTest
 {
   @Test
