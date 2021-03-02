@@ -6,7 +6,7 @@ import org.junit.runner.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty"}, features = "src/test/resources/it/features")
-@Tag("profileServer")
+//@Tag("profileServer")
 public class CustomersCucumberIT
 {
 }

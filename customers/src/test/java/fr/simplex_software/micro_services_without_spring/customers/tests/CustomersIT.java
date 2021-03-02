@@ -516,10 +516,10 @@ public class CustomersIT extends TestBase
     assertThat(customers).isNotNull();
     assertThat(customers.getCustomers()).isNotNull();
     assertThat(customers.getCustomers().size()).isNotNull();
-    assertThat(customers.getCustomers().size()).isEqualTo(1);
+    assertThat(customers.getCustomers().size()).isEqualTo(6);
     Customer customer = customers.getCustomers().get(0);
     assertThat(customer).isNotNull();
-    assertThat(customer.getContactDetails().getFirstName()).isEqualTo("Emory");
+    assertThat(customer.getContactDetails().getFirstName()).isEqualTo("John");
   }
 
   @Test

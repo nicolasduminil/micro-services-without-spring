@@ -13,7 +13,6 @@ import javax.xml.bind.*;
 import java.io.*;
 
 @Slf4j
-@Tag("profileServer")
 public class TestBase
 {
   @Container

@@ -244,7 +244,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <configuration>
-              <groups>profileServer</groups>
+              <!--groups>profileServer</groups-->
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-it.exec</jacoco-agent.destfile>
               </systemPropertyVariables>

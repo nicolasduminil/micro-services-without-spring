@@ -19,9 +19,9 @@ public class TestCustomerMapper extends TestBase
     assertThat(customer).isNotNull();
     CustomerEntity customerEntity = CustomerMapper.INSTANCE.fromCustomer(customer);
     assertThat(customerEntity).isNotNull();
-    assertThat(customerEntity.getCustomerRef()).isEqualTo("Customer1");
+    assertThat(customerEntity.getCustomerRef()).isEqualTo("Customer20");
     customer = CustomerMapper.INSTANCE.fromEntity(customerEntity);
     assertThat(customer).isNotNull();
-    assertThat(customer.getCustomerRef()).isEqualTo("Customer1");
+    assertThat(customer.getCustomerRef()).isEqualTo("Customer20");
   }
 }
