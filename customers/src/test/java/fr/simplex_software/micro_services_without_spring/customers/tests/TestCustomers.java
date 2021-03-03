@@ -18,7 +18,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 @Slf4j
-@Tag("profileServer")
 public class TestCustomers
 {
   @Mock

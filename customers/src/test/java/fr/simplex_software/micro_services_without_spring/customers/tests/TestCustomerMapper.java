@@ -9,7 +9,7 @@ import java.io.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class TestCustomerMapper extends TestBase
+public class TestCustomerMapper extends TestCommon
 {
   public void testCustomerMapper()
   {

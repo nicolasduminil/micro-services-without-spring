@@ -10,7 +10,6 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 
-@Tag("profileServer")
 public class TestConstraintViolationExceptionMapper
 {
   @Test

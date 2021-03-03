@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.io.*;
 import java.sql.*;
 
-@Tag("profileServer")
-public class JpaHibernateTest extends TestBase
+public class JpaHibernateTest extends TestCommon
 {
   private static EntityManagerFactory emf;
   private static EntityManager em;
