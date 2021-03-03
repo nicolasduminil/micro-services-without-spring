@@ -1,11 +1,10 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests;
+package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.cucumber.java.en.*;
 import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
-import org.junit.jupiter.api.*;
 
 import javax.ws.rs.core.*;
 import java.io.*;
@@ -21,10 +20,10 @@ public class CustomersCucumberSteps extends TestBase
   private io.restassured.response.Response response;
   private final Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
 
-  /*static
+  static
   {
     wildfly.start();
-  }*/
+  }
 
   @Given("URI is initialized")
   public void uriIsInitialized()

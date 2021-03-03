@@ -84,7 +84,7 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.CustomersIT
+[INFO] Running fr.simplex_software.micro_services_without_spring.customers.tests.standalone.CustomersIT
 2021-02-05 14:00:35 DEBUG TestcontainersConfiguration:178 - Testcontainers configuration overrides will be loaded from file:/home/nicolas/.testcontainers.properties
 2021-02-05 14:00:35 INFO  DockerClientProviderStrategy:110 - Loaded org.testcontainers.dockerclient.EnvironmentAndSystemPropertyClientProviderStrategy from ~/.testcontainers.properties, will try it first
 2021-02-05 14:00:35 DEBUG DockerClientProviderStrategy:184 - Pinging docker daemon...
@@ -1677,7 +1677,7 @@ tmpfs                 16258980         0  16258980   0% /sys/firmware
 2021-02-05 14:00:43 DEBUG DefaultHttpClient:504 - Connection can be kept alive indefinitely
 2021-02-05 14:00:43 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:545 - Parsing response as: application/xml;charset=UTF-8
 2021-02-05 14:00:43 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:548 - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.508 s - in fr.simplex_software.micro_services_without_spring.customers.tests.CustomersIT
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.508 s - in fr.simplex_software.micro_services_without_spring.customers.tests.standalone.CustomersIT
 [INFO] 
 [INFO] Results:
 [INFO] 

@@ -1,4 +1,4 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests;
+package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.restassured.*;

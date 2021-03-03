@@ -81,6 +81,11 @@
     </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-runner</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-launcher</artifactId>
       <scope>test</scope>
     </dependency>
@@ -168,10 +173,12 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <configuration>
-              <groups>profileBootable</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-it.exec</jacoco-agent.destfile>
               </systemPropertyVariables>
+              <includes>
+                <include>**/bootable/*</include>
+              </includes>
             </configuration>
             <executions>
               <execution>
@@ -240,10 +247,12 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
             <configuration>
-              <groups>profileServer</groups>
               <systemPropertyVariables>
                 <jacoco-agent.destfile>${project.build.directory}/jacoco-it.exec</jacoco-agent.destfile>
               </systemPropertyVariables>
+              <includes>
+                <include>**/standalone/*</include>
+              </includes>
             </configuration>
             <executions>
               <execution>

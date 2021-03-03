@@ -1,15 +1,13 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests;
+package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
 
-import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
+import fr.simplex_software.micro_services_without_spring.customers.tests.*;
 import lombok.extern.slf4j.*;
-import org.junit.jupiter.api.*;
 import org.testcontainers.containers.*;
 import org.testcontainers.containers.output.*;
 import org.testcontainers.containers.wait.strategy.*;
 import org.testcontainers.images.builder.*;
 import org.testcontainers.junit.jupiter.Container;
 
-import javax.xml.bind.*;
 import java.io.*;
 
 @Slf4j
