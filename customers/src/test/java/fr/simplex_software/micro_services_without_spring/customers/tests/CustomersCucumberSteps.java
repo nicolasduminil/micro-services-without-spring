@@ -14,7 +14,6 @@ import java.net.*;
 import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
-@Tag("profileServer")
 public class CustomersCucumberSteps extends TestBase
 {
   private static URI finalUri;
@@ -22,10 +21,10 @@ public class CustomersCucumberSteps extends TestBase
   private io.restassured.response.Response response;
   private final Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));
 
-  static
+  /*static
   {
     wildfly.start();
-  }
+  }*/
 
   @Given("URI is initialized")
   public void uriIsInitialized()
