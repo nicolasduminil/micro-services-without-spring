@@ -223,8 +223,9 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>1.4.200</version>
-        <scope>test</scope>
-      </dependency>    </dependencies>
+        <scope>runtime</scope>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
   <dependencies>
     <dependency>
@@ -267,9 +268,9 @@
           <version>${maven-war-plugin.version}</version>
         </plugin>
         <plugin>
-        <groupId>com.spotify</groupId>
-        <artifactId>dockerfile-maven-plugin</artifactId>
-        <version>${docker-maven-plugin}</version>
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>${docker-maven-plugin}</version>
         </plugin>
       </plugins>
     </pluginManagement>

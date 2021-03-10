@@ -65,6 +65,6 @@ public class CustomerServiceJpa implements CustomerService
   @Override
   public void removeCustomer(Long id)
   {
-    entityManager.createQuery("DELETE from CustomerEntity c where c.id = :id").setParameter("id", id);
+    entityManager.createQuery("DELETE from CustomerEntity c where c.id = :id").setParameter("id", id).executeUpdate();
   }
 }

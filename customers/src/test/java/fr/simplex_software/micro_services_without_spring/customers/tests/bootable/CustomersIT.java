@@ -1,10 +1,11 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
+package fr.simplex_software.micro_services_without_spring.customers.tests.bootable;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
 import org.junit.jupiter.api.*;
+import org.testcontainers.containers.Container;
 import org.testcontainers.junit.jupiter.*;
 
 import javax.ws.rs.core.*;
@@ -25,11 +26,10 @@ public class CustomersIT extends TestBase
   @BeforeAll
   public static void beforeAll()
   {
-     finalUri = UriBuilder.fromPath("customers")
+     finalUri = UriBuilder.fromPath("test")
       .scheme("http")
       .host(wildfly.getHost())
       .port(wildfly.getFirstMappedPort())
-      .path("test")
       .path("customers")
       .build();
   }

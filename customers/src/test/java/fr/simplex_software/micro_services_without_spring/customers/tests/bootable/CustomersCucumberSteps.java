@@ -1,4 +1,4 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
+package fr.simplex_software.micro_services_without_spring.customers.tests.bootable;
 
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import io.cucumber.java.en.*;
@@ -28,11 +28,10 @@ public class CustomersCucumberSteps extends TestBase
   @Given("URI is initialized")
   public void uriIsInitialized()
   {
-    finalUri = UriBuilder.fromPath("customers")
+    finalUri = UriBuilder.fromPath("test")
       .scheme("http")
       .host(wildfly.getHost())
       .port(wildfly.getFirstMappedPort())
-      .path("test")
       .path("customers")
       .build();
   }

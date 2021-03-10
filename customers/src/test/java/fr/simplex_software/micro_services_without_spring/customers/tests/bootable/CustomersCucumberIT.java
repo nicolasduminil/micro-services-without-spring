@@ -1,7 +1,7 @@
-package fr.simplex_software.micro_services_without_spring.customers.tests.standalone;
+package fr.simplex_software.micro_services_without_spring.customers.tests.bootable;
 
+import fr.simplex_software.micro_services_without_spring.customers.tests.standalone.TestBase;
 import io.cucumber.junit.*;
-import org.junit.jupiter.api.*;
 import org.junit.runner.*;
 
 @RunWith(Cucumber.class)

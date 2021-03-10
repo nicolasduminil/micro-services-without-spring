@@ -1,0 +1,4 @@
+module add --name=com.h2database.h2 --resources=/path/to/mysql.jar --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=h2:add(driver-name="h2",driver-module-name="com.h2database.h2",xa-datasource-class=org.h2.jdbcx.JdbcDataSource)
+data-source add --jndi-name=java:jboss/datasources/ExampleDS --name=ExampleDS --connection-url=jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE --driver-name=h2 --password=sa --user-name=sa
+/subsystem=datasources:read-resource
