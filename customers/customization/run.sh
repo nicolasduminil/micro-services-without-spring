@@ -1,4 +1,3 @@
-#!/bin/sh
 echo "************************************************************"
 echo "Waiting for the Oracle database server to start on port $ORACLE_PORT"
 echo "************************************************************"
