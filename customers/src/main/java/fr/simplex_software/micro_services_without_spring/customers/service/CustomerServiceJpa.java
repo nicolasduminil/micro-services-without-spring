@@ -10,12 +10,21 @@ import javax.transaction.*;
 import java.util.*;
 import java.util.stream.*;
 
+import static org.apache.commons.lang3.Validate.*;
+
 @Alternative
 @Transactional
 public class CustomerServiceJpa implements CustomerService
 {
   @PersistenceContext(unitName = "customers")
   private EntityManager entityManager;
+
+  public CustomerServiceJpa() {}
+
+  public CustomerServiceJpa (EntityManager entityManager)
+  {
+    this.entityManager = notNull(entityManager, "entityManager must not be null");
+  }
 
   @Override
   public Customers getCustomers()

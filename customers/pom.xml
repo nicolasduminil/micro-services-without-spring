@@ -80,6 +80,10 @@
       <artifactId>el-impl</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-runner</artifactId>
       <scope>test</scope>
@@ -145,6 +149,21 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.github.database-rider</groupId>
+      <artifactId>rider-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.database-rider</groupId>
+      <artifactId>rider-cdi</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>oracle-xe</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
@@ -177,6 +196,7 @@
               </systemPropertyVariables>
               <includes>
                 <include>**/bootable/*</include>
+                <include>**/common/*</include>
               </includes>
             </configuration>
             <executions>
@@ -251,6 +271,7 @@
               </systemPropertyVariables>
               <includes>
                 <include>**/standalone/*</include>
+                <include>**/common/*</include>
               </includes>
             </configuration>
             <executions>
