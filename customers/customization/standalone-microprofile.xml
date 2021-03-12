@@ -106,6 +106,9 @@
             <logger category="sun.rmi">
                 <level name="WARN"/>
             </logger>
+            <logger category="org.hibernate.tool.schema.internal">
+                <level name="ERROR"/>
+            </logger>
             <root-logger>
                 <level name="INFO"/>
                 <handlers>
@@ -132,7 +135,7 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/CustomersDS" pool-name="CustomersDS" enabled="true" use-ccm="false">
+                <datasource jndi-name="java:jboss/datasources/TestDS" pool-name="TestDS" enabled="true" use-ccm="false">
                     <connection-url>jdbc:oracle:thin:@192.168.96.3:1521/xe</connection-url>
                     <driver>oracle</driver>
                     <pool>
