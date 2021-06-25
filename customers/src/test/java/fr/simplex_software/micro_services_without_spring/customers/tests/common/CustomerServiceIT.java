@@ -7,7 +7,6 @@ import com.github.database.rider.core.util.*;
 import fr.simplex_software.micro_services_without_spring.customers.model.pojos.*;
 import fr.simplex_software.micro_services_without_spring.customers.service.*;
 import fr.simplex_software.micro_services_without_spring.customers.tests.*;
-import javassist.*;
 import lombok.extern.slf4j.*;
 import org.junit.*;
 import org.junit.runner.*;

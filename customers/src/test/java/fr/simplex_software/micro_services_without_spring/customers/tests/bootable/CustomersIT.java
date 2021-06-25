@@ -5,7 +5,6 @@ import io.restassured.*;
 import lombok.extern.slf4j.*;
 import org.apache.http.*;
 import org.junit.jupiter.api.*;
-import org.testcontainers.containers.Container;
 import org.testcontainers.junit.jupiter.*;
 
 import javax.ws.rs.core.*;
