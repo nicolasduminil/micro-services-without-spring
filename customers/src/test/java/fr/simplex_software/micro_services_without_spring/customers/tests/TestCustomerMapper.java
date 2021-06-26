@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class TestCustomerMapper extends TestCommon
 {
+  @Test
   public void testCustomerMapper()
   {
     Customer customer = unmarshalXmlFileToCustomer(new File("src/test/resources/customer.xml"));

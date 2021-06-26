@@ -7,8 +7,6 @@ import lombok.extern.slf4j.*;
 import javax.enterprise.context.*;
 import java.util.*;
 
-import static java.util.stream.Collectors.*;
-
 @ApplicationScoped
 @Slf4j
 public class CustomerServiceDefault implements CustomerService
@@ -17,7 +15,7 @@ public class CustomerServiceDefault implements CustomerService
 
   public Customers getCustomers()
   {
-    return Customers.builder().customers(customers.values().stream().collect(toList())).build();
+    return Customers.builder().customers(new ArrayList<>(customers.values())).build();
   }
 
   public Customer getCustomer(Long key)
@@ -44,6 +42,7 @@ public class CustomerServiceDefault implements CustomerService
 
   public void updateCustomer(Long key, Customer customer)
   {
+    customers.values().remove(customer);
     customers.put(key, customer);
   }
 

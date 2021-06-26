@@ -8,7 +8,6 @@ import org.eclipse.microprofile.health.*;
 import javax.enterprise.context.*;
 import javax.inject.*;
 import javax.ws.rs.*;
-import javax.ws.rs.client.*;
 import javax.ws.rs.core.*;
 import java.net.*;
 
@@ -31,24 +30,10 @@ public class CustomerResourceHealthCheck implements HealthCheck
   @Override
   public HealthCheckResponse call()
   {
-    /*log.info("### >>> CustomerResourceHealthCheck.call(): URI {}", getResourceUri());
-    HealthCheckResponseBuilder builder = HealthCheckResponse.named(CustomerResource.class.getSimpleName());
-    Response response = ClientBuilder.newClient()
-      .target(getResourceUri())
-      .request()
-      .header("ORIGIN", String.format("%s:%d", host, port))
-      .options();
-    boolean up = Response.Status.OK.equals(response.getStatusInfo().toEnum());
-    if (up)
-      builder.withData("resource", "available").up();
-    else
-      builder.withData("resource", "not available").down();
-    return builder.build();*/
-    log.info("### >>> CustomerResourceHealthCheck.call()");
     return HealthCheckResponse.up(">>> CustomerResourceHealthCheck.call(): Readiness health check");
   }
 
-  /*private URI getResourceUri()
+  private URI getResourceUri()
   {
     return UriBuilder.fromPath(contextRoot)
       .path(CustomerApp.class.getAnnotation(ApplicationPath.class).value())
@@ -57,5 +42,5 @@ public class CustomerResourceHealthCheck implements HealthCheck
       .host(host)
       .port(port)
       .build();
-  }*/
+  }
 }

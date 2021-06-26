@@ -11,17 +11,16 @@ import org.mockito.*;
 import org.mockito.junit.jupiter.*;
 
 import javax.ws.rs.core.*;
-import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 @Slf4j
 public class TestCustomers
 {
-  @Mock
-  private CustomerServiceDefault customerService;
+  private static final CustomerServiceDefault customerServiceDefault = new CustomerServiceDefault();
   @Mock
   private UriBuilder resteasyUriBuilder;
   @InjectMocks
@@ -35,50 +34,46 @@ public class TestCustomers
     .contactDetails(customerContactDetails).build();
 
   @BeforeEach
-  void setUp()
+  public void setUp()
   {
-    Mockito.lenient().doCallRealMethod().when(customerService).createCustomer(Mockito.anyLong(), Mockito.any(Customer.class));
-    Mockito.lenient().doCallRealMethod().when(customerService).updateCustomer(Mockito.anyLong(), Mockito.any(Customer.class));
+    customerResource.setCustomerService(customerServiceDefault);
   }
 
   @Test
+  @Order(1)
   public void testCreateCustomer()
   {
-    doNothing().when(customerService).createCustomer(anyLong(), any(Customer.class));
     when(resteasyUriBuilder.path("/customers/{id}")).thenReturn(new ResteasyUriBuilder().path("/customers/{id}"));
     Response response = customerResource.createCustomer(customer);
     assertThat(response).isNotNull();
     assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
     assertThat(response.getLocation().toString()).startsWith("/customers");
-    verify(customerService).createCustomer(anyLong(), any(Customer.class));
   }
 
   @Test
+  @Order(2)
   public void testUpdateCustomer()
   {
-    doNothing().when(customerService).updateCustomer(anyLong(), any(Customer.class));
     when(resteasyUriBuilder.path("/customers/{id}")).thenReturn(new ResteasyUriBuilder().path("/customers/{id}"));
     Response response = customerResource.updateCustomer(1L, customer);
     assertThat(response).isNotNull();
     assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
     assertThat(response.getLocation().toString()).startsWith("/customers");
-    verify(customerService).updateCustomer(anyLong(), any(Customer.class));
   }
 
   @Test
+  @Order(3)
   public void testGetCustomer()
   {
-    when(customerService.getCustomer(1L)).thenReturn(customer);
     Response response = customerResource.getCustomer(1L);
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     assertThat(response.readEntity(Customer.class)).isEqualTo(customer);
-    verify(customerService).getCustomer(1L);
   }
 
   @Test
+  @Order(4)
   public void testGetCustomers()
   {
-    when(customerService.getCustomers()).thenReturn(Customers.builder().customers(Collections.singletonList(customer)).build());
     Response response = customerResource.getCustomers();
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     Customers customers = response.readEntity(Customers.class);
@@ -86,39 +81,36 @@ public class TestCustomers
     assertThat(customers.getCustomers()).isNotNull();
     assertThat(customers.getCustomers().size()).isEqualTo(1);
     assertThat(customers.getCustomers().get(0)).isEqualTo(customer);
-    verify(customerService).getCustomers();
   }
 
   @Test
+  @Order(7)
   public void testDeleteCustomer()
   {
-    doNothing().when(customerService).removeCustomer(1L);
     Response response = customerResource.removeCustomer(1L);
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
-    verify(customerService).removeCustomer(1L);
   }
 
   @Test
+  @Order(5)
   public void testGetCustomerByRef()
   {
-    when(customerService.getCustomerByRef("Customer1")).thenReturn(customer);
     Response response = customerResource.getCustomerByRef("Customer1");
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     assertThat(response.readEntity(Customer.class)).isEqualTo(customer);
-    verify(customerService).getCustomerByRef("Customer1");
   }
 
   @Test
+  @Order(6)
   public void testGetCustomerIdByRef()
   {
-    when(customerService.getCustomerIdByRef("Customer1")).thenReturn(1L);
     Response response = customerResource.getCustomerIdByRef("Customer1");
     assertThat(response.getStatus()).isEqualTo(Response.Status.OK.getStatusCode());
     assertThat(response.readEntity(String.class)).isEqualTo("1");
-    verify(customerService).getCustomerIdByRef("Customer1");
   }
 
   @Test
+  @Order(8)
   public void testCustomerService()
   {
     CustomerServiceDefault customerService1 = new CustomerServiceDefault();

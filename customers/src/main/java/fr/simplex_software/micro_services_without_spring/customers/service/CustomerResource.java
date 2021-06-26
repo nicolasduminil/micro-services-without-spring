@@ -103,4 +103,14 @@ public class CustomerResource
     customerService.removeCustomer(id);
     return Response.ok().build();
   }
+
+  public CustomerService getCustomerService()
+  {
+    return customerService;
+  }
+
+  public void setCustomerService(CustomerService customerService)
+  {
+    this.customerService = customerService;
+  }
 }
